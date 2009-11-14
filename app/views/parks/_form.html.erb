@@ -64,26 +64,29 @@
 	<div id="park-map">
 	</div>
 
-  <div class="amenity_list">
+  <div class="amenities">
     <% park.park_amenities.build if park.park_amenities.empty? %>
-    <% f.fields_for :park_amenities do |a| %>
-      <div class='left'>
-        <%= a.label :amenity_id, "Amenity" %>
-      </div>
-      <div class='right'>
-        <%= a.collection_select :amenity_id, Amenity.all, :id, :name, :include_blank => true %>
-      </div>
-      <div class='clear'></div>
-      <div class='left'>
-        <%= a.label :description, "Amenity description" %>
-      </div>
-      <div class='right'>
-        <%= a.text_field :description %>
-      </div>
-      <div class='clear'></div>
+    <% f.fields_for_with_template :park_amenities do |a| %>
+      <div class="amenity">
+        <div class='left'>
+          <%= a.label :amenity_id, "Amenity" %>
+        </div>
+        <div class='right'>
+          <%= a.collection_select :amenity_id, Amenity.all, :id, :name, :include_blank => true %>
+        </div>
+        <div class='clear'></div>
+        <div class='left'>
+          <%= a.label :description, "Amenity description" %>
+        </div>
+        <div class='right'>
+          <%= a.text_field :description %>
+        </div>
+        <div class='clear'></div>
+    </div>
     <% end %>
 
   </div>
+  <%= link_to "Add amenity", "#", :class => 'add_amenity' %>
 
 
   <% if park.new_record? %>
