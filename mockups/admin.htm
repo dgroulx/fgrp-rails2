@@ -13,9 +13,9 @@
 		<div class='container_16'>
 			<div id="header">
 				<h1>Friends of Grand Rapids Parks Admin Page</h1>
-				<ul>
+				<!--<ul>
 					<li><a href="javascript:ToggleSearchWindow();">Search</a></li>
-				</ul>
+				</ul>-->
 			</div>
 			<div id="main">
 				<div id="admin-toolbar">
@@ -39,28 +39,38 @@
 						<a name="basic"></a>
 						<h2>Basic Park Info</h2>
 						<div class='left'>
-							Name
+							<h4>Name</h4>
 						</div>
 						<div class='right'>
 							<input class='textbox' type="text" id="park-name" value="The Park Name"/>
 						</div>
 						<div class='clear'></div>
 						<div class='left'>
-							Description
+							<h4>Description</h4>
 						</div>
 						<div class='right'>
 							<textarea class='textbox' id="park-description">Some description will go here, about this park.</textarea>
 						</div>
 						<div class='clear'></div>
 						<div class='left'>
-							Contact Info
+							<h4>Park Size</h4>
+							<div>	
+								Enter the park size, in acres (ie "2" or "3.5")
+							</div>					
+						</div>
+						<div class='right'>
+							<input type="text" id="park-size" /> acres
+						</div>
+						<div class='clear'></div>
+						<div class='left'>
+							<h4>Contact Info</h4>
 						</div>
 						<div class='right'>
 							<textarea class='textbox' id="contact-information"></textarea>
 						</div>
 						<div class='clear'></div>
 						<div class='left'>
-							Address/Location
+							<h4>Address/Location</h4>
 						</div>
 						<div class='right'>
 							<input class='textbox' type="text" id="park-address1" value="Grand Rapids, MI"/>
@@ -69,6 +79,7 @@
 							</div>
 						</div>
 						<div class='clear'></div>
+						
 						<!--<img alt="Static Google Map" src="http://maps.google.com/maps/api/staticmap?center=Grand Rapids,MI&zoom=10&size=300x250&maptype=roadmap
 						&markers=color:blue|label:S|40.702147,-74.015794&sensor=false&key=ABQIAAAAwIRxdoIRFaF6xG-_lFH6RBTh3EVmyytS48scZT_LeMRImnnkbhRenhxIzmz2fKQhrR6vyYN7CRJvtA
 						"/>-->
@@ -102,10 +113,11 @@
 						<h2>Vimeo Admin</h2>
 					</div>
 				</div>
-
+				<div id="update-button">
+					<a href="javascript:void()">Update Park</a>
+				</div>
 			</div>
 			<div id="footer">
-				
 			</div>
 		</div>
 

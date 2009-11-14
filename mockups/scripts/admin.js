@@ -21,6 +21,19 @@ function SetProfileMapCenter(pLatLng)
 
 	map.setCenter(pLatLng,12);
 };
+function RemoveAmenity(e)
+{
+	var theRemoveLink = $(this);
+	var theAmenity = theRemoveLink.parents(".amenity");
+	var theAmenities = theAmenity.parents("#amenities-list");
+	theAmenity.remove();
+	if(theAmenities.find("li").length==0)
+	{
+		theAmenities.html("Nothing selected yet.");
+	}
+	
+	return false;
+}
 function SetupAmenities()
 {
 	var amenities = "Benches,Basketball Court,Restrooms,Soccer Field,Football Field,Baseball Diamond,Playground,Monument".split(",");
@@ -33,7 +46,8 @@ function SetupAmenities()
 			{
 				$("#amenities-list").empty();
 			}
-			$("#amenities-list").append("<li>"+data+"</li>");
+			var theAmenity = $("<li class='amenity'>"+data+"</li>").appendTo("#amenities-list");
+			$("<a href=''>Remove</a>").appendTo(theAmenity).click(RemoveAmenity);
 			$("#amenities_input").val("");
 		}
 	});
@@ -59,6 +73,11 @@ function SetupContact()
 	};
 	$(".contact-info .info").click(InfoClick);
 };
+function KeepUpdateButtonCentered()
+{
+	var theButton = $("#update-button");
+	
+};
 function Init()
 {
 	var $address = $("#park-address1");
@@ -76,6 +95,7 @@ function Init()
 	
 	SetupAmenities();
 	SetupContact();
+	KeepUpdateButtonCentered();
 };
 
 

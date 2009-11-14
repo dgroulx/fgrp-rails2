@@ -87,6 +87,10 @@ html
 	width:500px;
 	height:100px;
 }
+#park-size
+{
+	width:50px;
+}
 #contact-information
 {
 	width:295px;
@@ -101,6 +105,21 @@ html
 {
 	width:500px;
 }
+#amenities-list,
+#amenities-list li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#amenities-list li
+{
+	margin:0 0 5px 0;
+}
+#amenities-list li a
+{
+	margin:0 0 0 10px;
+}
 
 /** Map Area **/
 #park-map
@@ -108,6 +127,22 @@ html
 	width:300px;
 	height:250px;
 	z-index:0;
+}
+/** Update Button **/
+#update-button
+{
+	position:absolute;
+	top:50%;
+	right:-10px;
+	background-color:#FF9933;
+	width:100px;
+	height:30px;
+	text-align:center;
+}
+#update-button a
+{
+	color:#fff;
+	text-decoration:none;
 }
 /** Search Window **/
 #search-window
