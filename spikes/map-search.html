@@ -114,6 +114,12 @@
         // Simulated json callback
         function dataArrived(data) {
           $.each(data.parks, preparePark);
+          
+          var bounds = new GLatLngBounds();
+          $.each(data.parks, function() {
+            bounds.extend(this.latlng);
+          });
+          map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds)); 
           displayParks(data.parks);
           populateAmenities(data);
         }
