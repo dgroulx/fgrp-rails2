@@ -1,7 +1,8 @@
-Feature: Create a new park
+Feature: Managing parks
+
   In order to provide information on parks in the GR area
   As an admin
-  I want to be able to create parks
+  I want to be able to manage parks
   
   Scenario: Non-admin trying to create a park
     Given I am not signed in
@@ -29,7 +30,6 @@ Feature: Create a new park
       | .history | this is a new park |
       | .park_size    | 50x50 |
       | .address    | 1234 Mulberry Ln |
-
 
   Scenario: Admin updating a park
     Given I have signed in with "zach@zach.com/banana"
