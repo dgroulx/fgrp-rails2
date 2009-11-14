@@ -14,6 +14,7 @@ Feature: Managing parks
     When I go to the new park page
     And I fill in "Name" with "Zach's awesome park"
     And I fill in "Address" with "1234 Mulberry Ln"
+    And I fill in "Vimeo Embed" with "<object>My great video</object>"    
     And I fill in "Park Size" with "50x50"
     And I fill in "History" with "this is a new park"
     And I fill in "Latitude" with "0.0"
@@ -30,6 +31,7 @@ Feature: Managing parks
       | .history | this is a new park |
       | .park_size    | 50x50 |
       | .address    | 1234 Mulberry Ln |
+      | .vimeo_embed    | My great video |
 
   Scenario: Admin updating a park
     Given I have signed in with "zach@zach.com/banana"
@@ -37,6 +39,7 @@ Feature: Managing parks
     When I go to the "Wilcox Park" park's edit page
     And I fill in "Name" with "Zach's awesome park"
     And I fill in "Address" with "1234 Mulberry Ln"
+    And I fill in "Vimeo Embed" with "<object>My great video</object>"
     And I fill in "Park Size" with "50x50"
     And I fill in "History" with "this is a new park"
     And I fill in "Latitude" with "5.0"
@@ -53,6 +56,7 @@ Feature: Managing parks
       | .history | this is a new park |
       | .park_size    | 50x50 |
       | .address    | 1234 Mulberry Ln |
+      | .vimeo_embed    | My great video |
   
   Scenario: Admin destroying a park
     Given I have signed in with "zach@zach.com/banana"
