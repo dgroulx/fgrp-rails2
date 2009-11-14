@@ -1,10 +1,10 @@
-set :application, "friends.churchandsons.com"
+set :application, "friendsofgrparks.dreamhosters.com"
 set :repository,  "."
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
- set :user, "zgchurch"
+ set :user, "friendsofgrparks"
  set :deploy_to, "/home/#{user}/#{application}"
  set :use_sudo, false
 
