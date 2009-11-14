@@ -14,13 +14,18 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
+  config.gem "clearance",
+    :lib     => 'clearance',
+    :source  => 'http://gemcutter.org',
+    :version => '0.8.3'
   config.gem "rack"
+  config.gem "formtastic"   
   
   # Test requirements
-  config.gem "rspec", :lib => false
   config.gem "cucumber", :lib => false
   config.gem "randexp", :lib => false
-  config.gem "thoughtbot-factory_girl", :lib => false
+  config.gem "factory_girl", :lib => false
+  config.gem "webrat", :lib => false
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -41,12 +46,6 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  config.gem "clearance",
-    :lib     => 'clearance',
-    :source  => 'http://gemcutter.org',
-    :version => '0.8.3'
-  config.gem "formtastic"   
-  config.gem "factory_girl"
 end
 
 DO_NOT_REPLY = "donotreply@example.com"
