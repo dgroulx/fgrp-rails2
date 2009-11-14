@@ -59,7 +59,7 @@
 							</div>					
 						</div>
 						<div class='right'>
-							<input type="text" id="park-size" /> acres
+							<input type="text" class='textbox' id="park-size" /> acres
 						</div>
 						<div class='clear'></div>
 						<div class='left'>
@@ -90,7 +90,7 @@
 						<div class='left'>Add Amenity</div>
 						<div class='right'><input class='textbox' type="text" id="amenities_input"/></div>
 						<div class='clear'></div>
-						<div class='left'>Current Amenities</div>
+						<div class='left'></div>
 						<div class='right'>
 							<ul id="amenities-list">
 								Nothing selected yet.
@@ -100,17 +100,25 @@
 						</ul>
 					</div>
 					<div class='section'>
-						<a name="flickr"></a>
+						<a name='flickr'></a>
 						<h2>Flickr Setup</h2>
-						<a href="javascript:void()" id="add-flicker">Add Flickr Info</a>
-						<div class='form'>
-							<div class='left'></div>
-							<div class='right'></div>
+						<div class='left'>
+							<h4>Photo Set ID</h4>
+							<div>
+								Enter in the the photo set id
+								for the album you'd like to display
+								for this park. <br/>
+								Example (photoset id is in <span class="photoset-id-highlight">blue</span>):<br/> http://www.flickr.com/photos/jam343/sets/<span class='photoset-id-highlight'>72157594388194640</span>/
+							</div>
 						</div>
+						<div class='right'>
+							<input type="text" class="textbox" id="park-photoset-id"/>
+						</div>
+						<div class='clear'></div>
 					</div>
 					<div class='section'>
 						<a name="vimeo"></a>
-						<h2>Vimeo Admin</h2>
+						<h2>Vimeo Setup</h2>
 					</div>
 				</div>
 				<div id="update-button">

@@ -47,7 +47,7 @@ function SetupAmenities()
 				$("#amenities-list").empty();
 			}
 			var theAmenity = $("<li class='amenity'>"+data+"</li>").appendTo("#amenities-list");
-			$("<a href=''>Remove</a>").appendTo(theAmenity).click(RemoveAmenity);
+			$("<a href=''>Remove</a>").prependTo(theAmenity).click(RemoveAmenity);
 			$("#amenities_input").val("");
 		}
 	});
