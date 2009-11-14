@@ -1,27 +1,63 @@
 <% form_for(@park) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :history %><br />
-    <%= f.text_area :history, :class => 'tinymce' %>
-  </p>
-  <p>
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </p>
-  <p>
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </p>
-  <p>
-    <%= f.label :contact_info %><br />
+	<div class='left'>
+    <%= f.label :name %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :name, :class => 'textbox' %>
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+    <%= f.label :history %>
+	</div>
+	<div class='right'>
+	  <%= f.text_area :history, :class => 'tinymce' %>
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+		<h4>Park Size</h4>
+		<div>	
+			Enter the park size, in acres (ie "2" or "3.5")
+		</div>					
+	</div>
+	<div class='right'>
+		<input type="text" class='textbox' id="park-size" /> acres
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+    <%= f.label :contact_info %>
+	</div>
+	<div class='right'>
     <%= f.text_area :contact_info, :class => 'tinymce' %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+		<h4>Address/Location</h4>
+	</div>
+	<div class='right'>
+		<input class='textbox' type="text" id="park-address1" value="Grand Rapids, MI"/>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+	<div class='clear'></div>
+
+	<div id="park-map">
+	</div>
+
+	<div class='left'>
+		<%= f.label :latitude %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :latitude, :class => 'textbox' %>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+	<div class='left'>
+		<%= f.label :longitude %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :longitude, :class => 'textbox' %>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+
+  <%= f.submit 'Create' %>
 <% end %>

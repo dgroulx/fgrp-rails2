@@ -1,0 +1,186 @@
+/* Html Elements */
+html
+{
+
+}
+h2
+{
+	color:#66CC66;
+}
+h4
+{
+	color:#336699;
+}
+
+/** Main Page Elements **/
+#header
+{
+	position:fixed;
+	height:75px;
+	background-color:#fff;
+	z-index:100;
+	width:100%;
+}
+#footer
+{
+	background-image:url(../images/grass-footer.jpg);
+	background-position:0 100%;
+	background-repeat:repeat-x;
+	height:200px;
+}
+/** Main Area **/
+#main
+{
+	position:relative;
+}
+/** Admin Toolbar (floating) **/
+#admin-toolbar,
+#search-window
+{
+	z-index:100;
+}
+#admin-toolbar
+{
+	height:25px;
+	background-color:#99CCFF;
+	position:fixed;
+	top:75px; /* Height of #header */
+	width:940px;
+}
+#admin-toolbar ul,
+#admin-toolbar li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#admin-toolbar li
+{
+	float:left;
+	margin:0 10px 0 10px;
+}
+
+/** Form Elements **/
+.textbox
+{
+	border:1px solid #000;
+}
+
+/** Sections **/
+.sections
+{
+	margin:100px 0 0 0; /* Make sure that the top margin is the same height as #admin-toolbar */
+}
+.section .left,
+.section .right
+{
+	margin:0 10px 10px 10px;
+	float:left;
+}
+.section .left
+{
+	width:280px;
+}
+.section .right
+{
+	width:640px;
+}
+#park-name
+{
+	width:496px;
+}
+#park-description
+{
+	width:500px;
+	height:100px;
+}
+#park-size
+{
+	width:50px;
+}
+#contact-information
+{
+	width:295px;
+	height:75px;
+}
+#park-address1
+{
+	width:295px;
+	margin:0 10px 10px 0;
+}
+#amenities_input
+{
+	width:500px;
+}
+#amenities-list,
+#amenities-list li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#amenities-list li
+{
+	margin:0 0 5px 0;
+}
+#amenities-list li a
+{
+	margin:0 10px 0 0;
+}
+#park-photoset-id
+{
+	width:295px;
+}
+.photoset-id-highlight
+{
+	color:#3399FF; /* light blue */
+}
+/** Map Area **/
+#park-map
+{
+	width:300px;
+	height:250px;
+	z-index:0;
+}
+/** Update Button **/
+#update-button
+{
+	position:absolute;
+	top:50%;
+	right:-10px;
+	background-color:#FF9933;
+	width:100px;
+	height:30px;
+	text-align:center;
+}
+#update-button a
+{
+	color:#fff;
+	text-decoration:none;
+}
+/** Search Window **/
+#search-window
+{
+	display:none;
+	width:940px;
+	height:400px;
+	background-color:#99CCFF;
+	position:fixed;
+	top:100px;
+	border-top:1px dashed #fff;
+}
+#search-map
+{
+	width:800px;
+	height:350px;
+	margin:auto;
+}
+#search-input-area
+{
+	width:500px;
+	margin:0px auto 10px auto;
+}
+#search-window-box
+{
+	width:450px;
+}
