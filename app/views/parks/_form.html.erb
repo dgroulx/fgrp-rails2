@@ -1,27 +1,66 @@
 <% form_for(@park) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :history %><br />
-    <%= f.text_area :history, :class => 'tinymce' %>
-  </p>
-  <p>
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </p>
-  <p>
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </p>
-  <p>
-    <%= f.label :contact_info %><br />
+	<div class='left'>
+    <%= f.label :name %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :name, :class => 'textbox' %>
+	</div>
+	<div class='clear'></div>
+
+	<div class='left'>
+    <%= f.label :history %>
+	</div>
+	<div class='right'>
+	  <%= f.text_area :history, :class => 'tinymce' %>
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+    <%= f.label :park_size %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :park_size, :class => 'textbox' %>
+    Enter the park size in acres
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+    <%= f.label :contact_info %>
+	</div>
+	<div class='right'>
     <%= f.text_area :contact_info, :class => 'tinymce' %>
-  </p>
-  <p>
+	</div>
+	<div class='clear'></div>
+
+	<div class='left'>
+		<%= f.label :address %>
+	</div>
+	<div class='right'>
+	  <%= f.text_field :address, :class => 'textbox' %>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+	<div class='clear'></div>
+	<div class='left'>
+		<%= f.label :latitude %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :latitude, :class => 'textbox' %>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+	<div class='left'>
+		<%= f.label :longitude %>
+	</div>
+	<div class='right'>
+    <%= f.text_field :longitude, :class => 'textbox' %>
+		<a id="park-address-update" href="javascript:void();">Update</a>
+	</div>
+	<div id="park-map">
+	</div>
+
+
+  <% if @park.new_record? %>
     <%= f.submit 'Create' %>
-  </p>
+  <% else %>
+    <%= f.submit 'Update' %>
+  <% end %>
 <% end %>

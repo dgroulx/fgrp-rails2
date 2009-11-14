@@ -5,3 +5,4 @@ Then /^I should see the park:$/ do |table|
     end
   end
 end
+

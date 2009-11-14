@@ -16,13 +16,19 @@ module NavigationHelpers
       parks_path
     when /the recently created park's page/
       park_path(Park.last)
+    when /the "([^\"]+)" park's edit page/
+      edit_park_path(Park.find_by_name($1))
+    when /the "([^\"]+)" park's page/
+      park_path(Park.find_by_name($1))
+
+
     when /the new amenity page/i
       new_amenity_path
     when /the amenities page/i
       amenities_path
-    when /the edit page for the amenity named "([^"]+)"/i
+    when /the "([^"]+)" amenity's edit page/i
       edit_amenity_path(Amenity.find_by_name($1))
-    
+
     # Add more page name => path mappings here
     
     else

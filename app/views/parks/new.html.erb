@@ -1,5 +1,13 @@
-<h1>New park</h1>
+<%= section "parks new"%>
 
-<%= render :partial => 'form' %>
+<div class='sections'>
+	<div class='section'>
+		<a name="basic"></a>
+		<h2>Basic Park Info</h2>
+
+    <%= render :partial => "parks/form" %>
+
+  </div>
+</div>
 
 <%= link_to 'Back', parks_path %>

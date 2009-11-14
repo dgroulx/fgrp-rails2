@@ -37,7 +37,7 @@ Feature: Amenities crud
     And I have signed in with "admin@example.com/password"
     When I go to the amenities page
     And I click the edit link for the amenity named "Basketball Curt"
-    Then I should be on the edit page for the amenity named "Basketball Curt"
+    Then I should be on the "Basketball Curt" amenity's edit page
     And the "Name" field should contain "Basketball Curt"
 
     When I fill in "Name" with "Basketball Court"
