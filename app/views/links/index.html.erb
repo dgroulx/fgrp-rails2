@@ -1,2 +1,24 @@
-<h1>Links#index</h1>
-<p>Find me in app/views/links/index.html.erb</p>
+<ul>
+<% @links.each do |link| %>
+  <li>
+    <%= link_to link.title, link.href %>
+  </li>
+<% end %>
+</ul>
+
+<% form_for @link, :url => [@park, @link] do |f| %>
+  <p class="name">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p class="href">
+    <%= f.label :href, "URL" %>
+    <%= f.text_field :href %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+
+<% end %>

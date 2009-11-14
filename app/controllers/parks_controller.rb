@@ -45,7 +45,7 @@ class ParksController < ApplicationController
 
     respond_to do |format|
       if @park.save
-        flash[:notice] = 'Park was successfully created.'
+        flash[:success] = 'Park was successfully created.'
         format.html { redirect_to(parks_path) }
         format.xml  { render :xml => @park, :status => :created, :location => @park }
       else

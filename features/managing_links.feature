@@ -9,5 +9,14 @@ Feature: Managing links
     And a park exists with a name of "Free parking"
     When I go to the links page for the "Free parking" park
     Then I should see "Login required"
-
-
+  
+  Scenario: Admin user creating a link
+    Given I have signed in with "zach@zach.com/bananapanic"
+    And a park exists with a name of "Free parking"
+    When I go to the links page for the "Free parking" park
+    And I fill in "Title" with "Unrelated, but funny"
+    And I fill in "URL" with "http://badgerbadgerbadger.com"
+    And I press "Create"
+    Then I should see "Link was successfully created."
+    And I should be on the links page for the "Free parking" park
+    And I should see "Unrelated, but funny"
