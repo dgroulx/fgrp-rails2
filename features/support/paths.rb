@@ -20,6 +20,8 @@ module NavigationHelpers
       new_amenity_path
     when /the amenities page/i
       amenities_path
+    when /the edit page for the amenity named "([^"]+)"/i
+      edit_amenity_path(Amenity.find_by_name($1))
     
     # Add more page name => path mappings here
     
