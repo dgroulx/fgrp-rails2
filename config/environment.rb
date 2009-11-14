@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   config.gem "rack"
   
   # Test requirements
+  config.gem "rspec", :lib => false
   config.gem "cucumber", :lib => false
   config.gem "randexp", :lib => false
   config.gem "thoughtbot-factory_girl", :lib => false
