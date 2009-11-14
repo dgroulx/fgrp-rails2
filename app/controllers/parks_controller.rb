@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+  before_filter :authenticate, :except => ['show']
   # GET /parks
   # GET /parks.xml
   def index
