@@ -1,21 +1,23 @@
-<h2>Sign in</h2>
+<% section "sessions new" %>
 
 <% semantic_form_for :session, :url => session_path do |form| %>
-  <% form.inputs do %>
-    <%= form.input :email %>
-    <%= form.input :password, :as => :password %>
-  <% end %>
-  <% form.buttons do %>
-    <%= form.commit_button "Sign in" %>
-  <% end %>
-<% end %>
+  <h2>Friends of GR Parks - Sign in</h2>
 
-<ul>
-  <li>
-    <%= link_to "Sign up", new_user_path %>
-  </li>
-  <li>
-    <%= link_to "Forgot password?", new_password_path %>
-  </li>
-</ul>
+  <fieldset>
+    <div class="form_item">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="form_item">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+      <%= link_to "Forgot password?", new_password_path %>
+    </div>
+  </fieldset>
+  
+  <div class="buttons">
+    <%= form.submit "Sign in" %> or  <%= link_to "Sign up", new_user_path %>
+  </div>
+<% end %>
 

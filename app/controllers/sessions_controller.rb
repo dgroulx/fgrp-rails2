@@ -1,3 +1,3 @@
 class SessionsController < Clearance::SessionsController
-  layout 'admin'
+  layout 'login'
 end

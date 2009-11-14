@@ -5,11 +5,15 @@ html
 }
 h2
 {
-	color:#66CC66;
+	color:#669900;
 }
 h4
 {
 	color:#336699;
+}
+
+a{
+  color:#669900;
 }
 
 /** Main Page Elements **/
@@ -183,4 +187,35 @@ h4
 #search-window-box
 {
 	width:450px;
+}
+
+/* =sessions/login page
+*/
+body.sessions.new form.session {
+  width: 500px;
+  margin: 100px auto;
+  padding: 0.5em;
+  border: 6px solid #B0D136;
+  background-color: #D9FF77;
+}
+
+body.sessions.new form.session .form_item { 
+  margin: 0.25em 0 0.25em 0;
+}
+
+body.sessions.new form.session label {
+  display: block;
+  font-size: 1.25em;
+  color: #666;
+  float: left;
+  width: 100px;
+}
+
+body.sessions.new form.session .form_item input {
+  font-size: 1.25em;
+  width: 175px;
+}
+
+body.sessions.new form.session .buttons input {
+  font-size: 1.25em;
 }
