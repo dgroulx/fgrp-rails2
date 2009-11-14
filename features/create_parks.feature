@@ -23,7 +23,8 @@ Feature: Create a new park
       | .history | this is a new park |
   
   Scenario: Non-admin trying to create a park
-    Given I go to the new park page
+    Given I am not signed in
+    When I go to the new park page
     Then I should see "Login required"
     
     
