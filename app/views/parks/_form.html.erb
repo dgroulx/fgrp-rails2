@@ -68,6 +68,7 @@
     <% park.park_amenities.build if park.park_amenities.empty? %>
     <% f.fields_for_with_template :park_amenities do |a| %>
       <div class="amenity">
+        <%= a.hidden_field :_delete, :value => 0 %>
         <div class='left'>
           <%= a.label :amenity_id, "Amenity" %>
         </div>
@@ -80,6 +81,7 @@
         </div>
         <div class='right'>
           <%= a.text_field :description %>
+          <%= link_to "Delete", "#", :class => 'delete' %>
         </div>
         <div class='clear'></div>
     </div>

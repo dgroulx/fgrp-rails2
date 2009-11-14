@@ -10,4 +10,12 @@ $(document).ready(function() {
       return false;
     });
   });
+  
+  $('body.parks.admin .amenity .delete').each(function() {
+    $(this).click(function() {
+      $(this).parent().siblings('input[type=hidden]:first').attr('value', 1);
+      $(this).parent().parent().hide();
+      return false;
+    });
+  });
 });
