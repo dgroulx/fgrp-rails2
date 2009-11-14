@@ -4,19 +4,11 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>History</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Contact info</th>
   </tr>
 
 <% @parks.each do |park| %>
   <tr class="park">
     <td><%=h park.name %></td>
-    <td><%=h park.history %></td>
-    <td><%=h park.latitude %></td>
-    <td><%=h park.longitude %></td>
-    <td><%=h park.contact_info %></td>
     <td><%= link_to 'Show', park %></td>
     <td><%= link_to 'Edit', edit_park_path(park) %></td>
     <td><%= link_to 'Destroy', park, :confirm => 'Are you sure?', :method => :delete %></td>
