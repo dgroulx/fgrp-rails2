@@ -41,4 +41,11 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  config.gem "clearance",
+    :lib     => 'clearance',
+    :source  => 'http://gemcutter.org',
+    :version => '0.8.3'
+  config.gem "formtastic"   
 end
+
+DO_NOT_REPLY = "donotreply@example.com"
