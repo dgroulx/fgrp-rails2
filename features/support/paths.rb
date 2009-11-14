@@ -12,6 +12,10 @@ module NavigationHelpers
       new_password_path
     when /the new park page/i
       new_park_path
+    when /the parks index page/
+      parks_path
+    when /the recently created park's page/
+      park_path(Park.last)
     
     # Add more page name => path mappings here
     

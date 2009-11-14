@@ -1,27 +1,19 @@
-<p>
-  <b>Name:</b>
-  <%=h @park.name %>
-</p>
-
-<p>
-  <b>History:</b>
-  <%=h @park.history %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%=h @park.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%=h @park.longitude %>
-</p>
-
-<p>
-  <b>Contact info:</b>
-  <%=h @park.contact_info %>
-</p>
+<div class='park'>
+  <p class='name'>
+    <b>Name:</b>
+    <%=h @park.name %>
+  </p>
+  
+  <p class='history'>
+    <b>History:</b>
+    <%=h @park.history %>
+  </p>
+  
+  <p class='contact_info'>
+    <b>Contact info:</b>
+    <%=h @park.contact_info %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_park_path(@park) %> |
