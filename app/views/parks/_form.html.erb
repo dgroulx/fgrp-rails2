@@ -1,4 +1,4 @@
-<% form_for(@park) do |f| %>
+<% form_for(park) do |f| %>
   <%= f.error_messages %>
 
 	<div class='left'>
@@ -65,7 +65,7 @@
 	</div>
 
 
-  <% if @park.new_record? %>
+  <% if park.new_record? %>
     <%= f.submit 'Create' %>
   <% else %>
     <%= f.submit 'Update' %>

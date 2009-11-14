@@ -5,7 +5,7 @@
 		<a name="basic"></a>
 		<h2>Basic Park Info</h2>
 
-    <%= render :partial => "parks/form" %>
+    <%= render :partial => "parks/form", :locals => { :park => @park } %>
 
   </div>
 </div>
