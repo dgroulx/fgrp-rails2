@@ -199,8 +199,18 @@ body.sessions.new form.session {
   background-color: #D9FF77;
 }
 
+body.sessions.new form.session p.failure { 
+  display: block;
+  float: right;
+  padding: 0.25em;
+  background-color: #FF6745;
+}
+
+
 body.sessions.new form.session .form_item { 
   margin: 0.25em 0 0.25em 0;
+  font-size: 1.25em;
+  font-color: #666;
 }
 
 body.sessions.new form.session label {

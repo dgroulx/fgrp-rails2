@@ -1,6 +1,8 @@
 <% section "sessions new" %>
 
 <% semantic_form_for :session, :url => session_path do |form| %>
+  <%= flash_messages %>
+
   <h2>Friends of GR Parks - Sign in</h2>
 
   <fieldset>
