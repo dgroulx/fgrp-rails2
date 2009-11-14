@@ -33,16 +33,13 @@
         var callback = function(data) {
           var data = $.map(data.photoset.photo, function(photo) {
             return { 
-              '$img': { 
-                "@src": "http://farm" + photo.farm + ".static.flickr.com/" + photo.server +"/" + photo.id + "_" + photo.secret + ".jpg"
-                // "@alt": photo.title
-              }
+              '$img': { "@src": "http://farm" + photo.farm + ".static.flickr.com/" + photo.server +"/" + photo.id + "_" + photo.secret + ".jpg" }
             };
           });
 
           $("#photos").
             append( $("<ul><li><img /></li></ul>").expand(data)).
-            find("ul").innerfade({});
+            find("ul").innerfade();
         }
 
         $.getJSON("http://www.flickr.com/services/rest/?jsoncallback=?&format=json&api_key=" + key + "&method="+ api_method, callback);        
@@ -50,12 +47,6 @@
     </script>
   </head>
   <body>
-    <div style="display: none">
-      <ul id="photos-template">
-        <li><img src=""/></li>
-      </ul>
-    </div>
-
     <div id="photos">
     </div>
   </body>
