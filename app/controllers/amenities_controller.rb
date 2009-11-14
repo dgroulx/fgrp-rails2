@@ -1,5 +1,6 @@
 class AmenitiesController < ApplicationController
-  before_filter :authenticate, :except => "show"
+  layout 'admin'
+  before_filter :authenticate
 
   def new
     @amenity = Amenity.new

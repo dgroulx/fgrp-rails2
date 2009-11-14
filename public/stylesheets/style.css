@@ -15,7 +15,7 @@ h4
 /** Main Page Elements **/
 #header
 {
-	position:fixed;
+	/* position:fixed; */
 	height:75px;
 	background-color:#fff;
 	z-index:100;
