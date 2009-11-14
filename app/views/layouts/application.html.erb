@@ -15,7 +15,7 @@
   <%= javascript_include_tag "tiny_mce/jquery.tinymce.js" %>
   <%= javascript_include_tag "tiny_mce/tiny_mce_config.js" %>
 </head>
-<body>
+<body class="<%= yield(:section) %>">
 
 <div class='container_16'>
 	<div id="header">
