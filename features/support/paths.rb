@@ -20,7 +20,11 @@ module NavigationHelpers
       new_amenity_path
     when /the amenities page/i
       amenities_path
-    
+    when /the "([^\"]+)" park's edit page/
+      edit_park_path(Park.find_by_name($1))
+    when /the "([^\"]+)" park's page/
+      park_path(Park.find_by_name($1))
+          
     # Add more page name => path mappings here
     
     else
