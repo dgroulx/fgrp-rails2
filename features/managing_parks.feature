@@ -24,6 +24,7 @@ Feature: Managing parks
     Then I should see "Park was successfully created."
     And I should be on the parks index page
     And I should see "Zach's awesome park"
+    
     When I go to the recently created park's page
     Then I should see the park:
       | .name | Zach's awesome park |
@@ -49,6 +50,7 @@ Feature: Managing parks
     Then I should see "Park was successfully updated."
     And I should be on the parks index page
     And I should see "Zach's awesome park"
+    
     When I go to the "Zach's awesome park" park's page
     Then I should see the park:
       | .name | Zach's awesome park |
@@ -76,9 +78,26 @@ Feature: Managing parks
     And I fill in "Amenity description" with "Brown happy benches"
     And I press "Create"
     Then I should see "Park was successfully created."
+    
     When I go to the recently created park's page
     Then I should see the park has the amenities:
       | Amenity | Description |
       | Benches | Brown happy benches |
     
+  Scenario: Updating a park amenity
+    Given I have signed in with "zach@zach.com/banana"
+    And an amenity exists with a name of "Benches"
+    And an amenity exists with a name of "Slides"
+    And a park exists with a name of "Parky"
+    And the park "Parky" has a "Benches" amenity with description "Benchy"
+    When I go to the "Parky" park's edit page
+    And I select "Slides" from "Amenity"
+    And I fill in "Amenity description" with "Slippery slide"
+    And I press "Update"
+    Then I should see "Park was successfully updated."
+    And I should be on the parks index page
     
+    When I go to the "Parky" park's page
+    Then I should see the park has the amenities:
+      | Amenity | Description |
+      | Slides | Slippery slide |

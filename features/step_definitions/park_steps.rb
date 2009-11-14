@@ -20,3 +20,9 @@ Then /^I should see the park has the amenities:$/ do |table|
     end
   end
 end
+
+Given /^the park "([^\"]*)" has a "([^\"]*)" amenity with description "([^\"]*)"$/ do |park_name, amenity_name, amenity_description|
+  park = Park.find_by_name(park_name)
+  amenity = Amenity.find_by_name(amenity_name)
+  park.park_amenities.build(:amenity_id => amenity.id, :description => amenity_description)
+end
