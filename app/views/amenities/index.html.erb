@@ -1,5 +1,10 @@
-<ul>
+<ul class="amenities">
   <% @amenities.each do |amenity| %>
-    <li><%= amenity.name %></li>
+    <li class="amenity">
+      <span class="name">
+        <%= amenity.name %>
+      </span>
+      <%= link_to "Edit", edit_amenity_path(amenity) %>
+    </li>
   <% end %>
 </ul>
