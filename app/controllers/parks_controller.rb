@@ -78,6 +78,8 @@ class ParksController < ApplicationController
     @park = Park.find(params[:id])
     @park.destroy
 
+    flash[:success] = "Park was successfully destroyed."
+
     respond_to do |format|
       format.html { redirect_to(parks_url) }
       format.xml  { head :ok }

@@ -1,3 +1,4 @@
+<% section "parks index" %>
 <h1>Listing parks</h1>
 
 <table>
@@ -10,7 +11,7 @@
   </tr>
 
 <% @parks.each do |park| %>
-  <tr>
+  <tr class="park">
     <td><%=h park.name %></td>
     <td><%=h park.history %></td>
     <td><%=h park.latitude %></td>

@@ -6,3 +6,6 @@ Then /^I should see the park:$/ do |table|
   end
 end
 
+When /^I destroy the "([^\"]*)" park$/ do |park_name|
+  click_link_within ".park:contains('#{park_name}')", "Destroy"
+end

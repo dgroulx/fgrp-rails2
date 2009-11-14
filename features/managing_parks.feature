@@ -54,4 +54,13 @@ Feature: Managing parks
       | .park_size    | 50x50 |
       | .address    | 1234 Mulberry Ln |
   
+  Scenario: Admin destroying a park
+    Given I have signed in with "zach@zach.com/banana"
+    And a park exists with a name of "Wilcox Park"
+    When I go to the parks index page
+    And I destroy the "Wilcox Park" park
+    Then I should see "Park was successfully destroyed."
+    
+    When I go to the parks index page
+    Then I should not see "Wilcox Park"
     
