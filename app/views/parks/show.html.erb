@@ -28,7 +28,20 @@
     <b>Contact info:</b>
     <%= @park.contact_info %>
   </p>
+  <ul class='amenities'>
+    <% @park.park_amenities.each do |amenity| %>
+      <li class='amenity'>
+        <span class='name'>
+          <%= amenity.name %>
+        </span>
+        <span class='description'>
+          <%= amenity.description %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
 </div>
+
 
 
 <%= link_to 'Edit', edit_park_path(@park) %> |

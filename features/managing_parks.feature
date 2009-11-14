@@ -68,3 +68,17 @@ Feature: Managing parks
     When I go to the parks index page
     Then I should not see "Wilcox Park"
     
+  Scenario: Admin adding park amenities
+    Given I have signed in with "zach@zach.com/banana"
+    And an amenity exists with a name of "Benches"
+    And I am on the new park page
+    When I select "Benches" from "Amenity"
+    And I fill in "Amenity description" with "Brown happy benches"
+    And I press "Create"
+    Then I should see "Park was successfully created."
+    When I go to the recently created park's page
+    Then I should see the park has the amenities:
+      | Amenity | Description |
+      | Benches | Brown happy benches |
+    
+    

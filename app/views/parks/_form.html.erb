@@ -64,6 +64,27 @@
 	<div id="park-map">
 	</div>
 
+  <div class="amenity_list">
+    <% park.park_amenities.build if park.park_amenities.empty? %>
+    <% f.fields_for :park_amenities do |a| %>
+      <div class='left'>
+        <%= a.label :amenity_id, "Amenity" %>
+      </div>
+      <div class='right'>
+        <%= a.collection_select :amenity_id, Amenity.all, :id, :name, :include_blank => true %>
+      </div>
+      <div class='clear'></div>
+      <div class='left'>
+        <%= a.label :description, "Amenity description" %>
+      </div>
+      <div class='right'>
+        <%= a.text_field :description %>
+      </div>
+      <div class='clear'></div>
+    <% end %>
+
+  </div>
+
 
   <% if park.new_record? %>
     <%= f.submit 'Create' %>
