@@ -28,6 +28,9 @@ module NavigationHelpers
       amenities_path
     when /the "([^"]+)" amenity's edit page/i
       edit_amenity_path(Amenity.find_by_name($1))
+      
+    when /the links page for the "([^"]+)" park/i
+      park_links_path(Park.find_by_name($1))
 
     # Add more page name => path mappings here
     
