@@ -1,7 +1,11 @@
+/* Html Elements */
 html
 {
 
 }
+
+
+/** Main Page Elements **/
 #header
 {
 	position:fixed;
@@ -20,8 +24,14 @@ html
 /** Main Area **/
 #main
 {
+	position:relative;
 }
 /** Admin Toolbar (floating) **/
+#admin-toolbar,
+#search-window
+{
+	z-index:100;
+}
 #admin-toolbar
 {
 	height:25px;
@@ -29,7 +39,6 @@ html
 	position:fixed;
 	top:75px; /* Height of #header */
 	width:940px;
-	z-index:100;
 }
 #admin-toolbar ul,
 #admin-toolbar li
@@ -43,6 +52,13 @@ html
 	float:left;
 	margin:0 10px 0 10px;
 }
+
+/** Form Elements **/
+.textbox
+{
+	border:1px solid #000;
+}
+
 /** Sections **/
 .sections
 {
@@ -71,18 +87,51 @@ html
 	width:500px;
 	height:100px;
 }
+#contact-information
+{
+	width:295px;
+	height:75px;
+}
 #park-address1
 {
 	width:295px;
+	margin:0 10px 0 0;
 }
 #amenities_input
 {
 	width:500px;
 }
+
 /** Map Area **/
 #park-map
 {
 	width:300px;
 	height:250px;
 	z-index:0;
+}
+/** Search Window **/
+#search-window
+{
+	display:none;
+	width:940px;
+	height:400px;
+	background-color:#99CCFF;
+	position:fixed;
+	top:100px;
+	border-top:1px dashed #fff;
+}
+#search-map
+{
+	width:800px;
+	height:350px;
+	margin:auto;
+}
+#search-input-area
+{
+	width:500px;
+	margin:0px auto 10px auto;
+}
+#search-window-box
+{
+	width:450px;
 }
