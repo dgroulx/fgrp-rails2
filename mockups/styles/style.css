@@ -1,0 +1,88 @@
+html
+{
+
+}
+#header
+{
+	position:fixed;
+	height:75px;
+	background-color:#fff;
+	z-index:100;
+	width:100%;
+}
+#footer
+{
+	background-image:url(../images/grass-footer.jpg);
+	background-position:0 100%;
+	background-repeat:repeat-x;
+	height:200px;
+}
+/** Main Area **/
+#main
+{
+}
+/** Admin Toolbar (floating) **/
+#admin-toolbar
+{
+	height:25px;
+	background-color:#99CCFF;
+	position:fixed;
+	top:75px; /* Height of #header */
+	width:940px;
+	z-index:100;
+}
+#admin-toolbar ul,
+#admin-toolbar li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#admin-toolbar li
+{
+	float:left;
+	margin:0 10px 0 10px;
+}
+/** Sections **/
+.sections
+{
+	margin:100px 0 0 0; /* Make sure that the top margin is the same height as #admin-toolbar */
+}
+.section .left,
+.section .right
+{
+	margin:0 10px 10px 10px;
+	float:left;
+}
+.section .left
+{
+	width:280px;
+}
+.section .right
+{
+	width:640px;
+}
+#park-name
+{
+	width:496px;
+}
+#park-description
+{
+	width:500px;
+	height:100px;
+}
+#park-address1
+{
+	width:295px;
+}
+#amenities_input
+{
+	width:500px;
+}
+/** Map Area **/
+#park-map
+{
+	width:300px;
+	height:250px;
+	z-index:0;
+}
