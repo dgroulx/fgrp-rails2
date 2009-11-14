@@ -5,4 +5,5 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'parks', :action => 'index'
 
+  map.resource :session, :controller => 'sessions'
 end
