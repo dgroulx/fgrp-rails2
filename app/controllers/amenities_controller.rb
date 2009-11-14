@@ -34,4 +34,11 @@ class AmenitiesController < ApplicationController
       render :action => "edit"
     end
   end
+
+  def destroy
+    @amenity = Amenity.find(params[:id])
+    @amenity.destroy
+    flash[:notice] = "#{@amenity.name} deleted."
+    redirect_to amenities_path
+  end
 end

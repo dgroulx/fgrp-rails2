@@ -36,7 +36,7 @@ Feature: Amenities crud
     Given an amenity exists with a name of "Basketball Curt"
     And I have signed in with "admin@example.com/password"
     When I go to the amenities page
-    And I click the edit link for the amenity named "Basketball Curt"
+    And I click the "Edit" link for the amenity named "Basketball Curt"
     Then I should be on the "Basketball Curt" amenity's edit page
     And the "Name" field should contain "Basketball Curt"
 
@@ -44,3 +44,15 @@ Feature: Amenities crud
     And I press "Save"
     Then I should see "Basketball Court was updated"
     And I should be on the amenities page
+
+  Scenario: A user deletes an amenity
+    Given an amenity exists with a name of "Basketball Curt"
+    And I have signed in with "admin@example.com/password"
+    When I go to the amenities page
+    And I click the "Delete" link for the amenity named "Basketball Curt"
+    Then I should be on the amenities page
+    And I should see "Basketball Curt deleted."
+
+    When I go to the amenities page
+    And I should not see "Basketball Curt"
+
