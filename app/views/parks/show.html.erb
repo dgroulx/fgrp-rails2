@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @park.name %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%=h @park.history %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @park.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @park.longitude %>
+</p>
+
+<p>
+  <b>Contact info:</b>
+  <%=h @park.contact_info %>
+</p>
+
+
+<%= link_to 'Edit', edit_park_path(@park) %> |
+<%= link_to 'Back', parks_path %>
