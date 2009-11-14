@@ -16,6 +16,10 @@ module NavigationHelpers
       parks_path
     when /the recently created park's page/
       park_path(Park.last)
+    when /the new amenity page/i
+      new_amenity_path
+    when /the amenities page/i
+      amenities_path
     
     # Add more page name => path mappings here
     

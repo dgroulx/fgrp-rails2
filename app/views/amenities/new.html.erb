@@ -1,0 +1,6 @@
+<%= error_messages_for 'amenity' %>
+
+<% form_for :amenity, @amenity, :url => {:action => "create"} do |f| %>
+  <%= f.label :name, "Name" %>: <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>
