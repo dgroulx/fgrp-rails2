@@ -1,13 +1,13 @@
-class CreateParks < ActiveRecord::Migration
+class DestroyParks < ActiveRecord::Migration
   def self.up
+    drop_table :parks
+  end
+
+  def self.down
     create_table :parks do |t|
       t.string :title
 
       t.timestamps
     end
-  end
-
-  def self.down
-    drop_table :parks
   end
 end
