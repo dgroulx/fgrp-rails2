@@ -8,6 +8,7 @@
     <%= f.text_field :name, :class => 'textbox' %>
 	</div>
 	<div class='clear'></div>
+
 	<div class='left'>
     <%= f.label :history %>
 	</div>
@@ -30,18 +31,15 @@
     <%= f.text_area :contact_info, :class => 'tinymce' %>
 	</div>
 	<div class='clear'></div>
+
 	<div class='left'>
-		<h4>Address/Location</h4>
+		<%= f.label :address %>
 	</div>
 	<div class='right'>
-		<input class='textbox' type="text" id="park-address1" value="Grand Rapids, MI"/>
+	  <%= f.text_field :address, :class => 'textbox' %>
 		<a id="park-address-update" href="javascript:void();">Update</a>
 	</div>
 	<div class='clear'></div>
-
-	<div id="park-map">
-	</div>
-
 	<div class='left'>
 		<%= f.label :latitude %>
 	</div>
@@ -56,6 +54,9 @@
     <%= f.text_field :longitude, :class => 'textbox' %>
 		<a id="park-address-update" href="javascript:void();">Update</a>
 	</div>
+	<div id="park-map">
+	</div>
+
 
   <%= f.submit 'Create' %>
 <% end %>
