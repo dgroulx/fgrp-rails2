@@ -114,3 +114,8 @@ When /^I return next time$/ do
   When %{session is cleared}
   And %{I go to the homepage}
 end
+
+
+Given /^I am not signed in$/ do
+  Then "I sign out" if controller && controller.signed_in?
+end
