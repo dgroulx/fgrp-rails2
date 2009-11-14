@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
-  config.frameworks -= [ :active_resource, :action_mailer ]
+  config.frameworks -= [ :active_resource]
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -46,6 +46,7 @@ Rails::Initializer.run do |config|
     :source  => 'http://gemcutter.org',
     :version => '0.8.3'
   config.gem "formtastic"   
+  config.gem "factory_girl"
 end
 
 DO_NOT_REPLY = "donotreply@example.com"
