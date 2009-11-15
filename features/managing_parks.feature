@@ -18,6 +18,7 @@ Feature: Managing parks
     And I fill in "Park Size" with "50x50"
     And I fill in "History" with "this is a new park"
     And I fill in "Contact info" with "Zachary"
+    And I fill in "Flickr pool id" with "abc123"
     And I press "Create"
     Then I should see "Park was successfully created."
     And I should be on the parks index page
@@ -31,6 +32,8 @@ Feature: Managing parks
       | .park_size    | 50x50 |
       | .address    | 1234 Mulberry Ln |
       | .vimeo_embed    | My great video |
+    
+    Then I should see a flickr slide show for the pool with group id "abc123"
 
   Scenario: Admin updating a park
     Given I have signed in with "zach@zach.com/banana"
@@ -42,6 +45,7 @@ Feature: Managing parks
     And I fill in "Park Size" with "50x50"
     And I fill in "History" with "this is a new park"
     And I fill in "Contact info" with "Zachary"
+    And I fill in "Flickr Pool Id" with "abc123"
     And I press "Update"
     Then I should see "Park was successfully updated."
     And I should be on the parks index page

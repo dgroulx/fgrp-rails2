@@ -274,3 +274,22 @@ body.sessions.new form.session .form_item input {
 body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
+
+body.parks.show .flickr-pool-slideshow ul {
+  list-style: none;
+  padding: 0;
+}
+body.parks.show .flickr-pool-slideshow li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+body.parks.show .flickr-pool-slideshow li img {
+  width: 100%;
+  height: auto;
+  margin: auto auto;
+}

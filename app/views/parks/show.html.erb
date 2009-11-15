@@ -1,3 +1,5 @@
+<% content_for :section, "parks show" %>
+
 <div class='park'>
   <p class='name'>
     <b>Name:</b>
@@ -23,6 +25,9 @@
     <b>History:</b>
     <%= @park.history %>
   </p>
+  
+  <div class="flickr-pool-slideshow" data-groupid="<%= @park.flickr_pool_id %>">
+  </div>
   
   <p class='contact_info'>
     <b>Contact info:</b>

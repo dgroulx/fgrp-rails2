@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091115141606) do
+ActiveRecord::Schema.define(:version => 20091115141748) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20091115141606) do
     t.string   "park_size"
     t.text     "address"
     t.text     "vimeo_embed"
+    t.string   "flickr_pool_id"
   end
 
   create_table "users", :force => true do |t|

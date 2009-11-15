@@ -26,3 +26,7 @@ Given /^the park "([^\"]*)" has a "([^\"]*)" amenity with description "([^\"]*)"
   amenity = Amenity.find_by_name(amenity_name)
   park.park_amenities.build(:amenity_id => amenity.id, :description => amenity_description)
 end
+
+Then /^I should see a flickr slide show for the pool with group id "([^"]+)"$/ do |group_id|
+  response.should have_selector(".flickr-pool-slideshow[@data-groupid='#{group_id}']")
+end
