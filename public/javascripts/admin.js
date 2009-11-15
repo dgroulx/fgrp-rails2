@@ -1,26 +1,29 @@
 
 $(document).ready(function() {	
+  var adminArea = $("body.parks.admin"); //refactor this out
+  var address = adminArea.find(".address:first");
+  
   function logMapMessage(pMessage)
   {
-    var adminArea = $("body.parks.admin");
-    adminArea.find(".message").html(pMessage);
+    adminArea.find(".message:first").html(pMessage);
   }
-  
-  function updateMap(pSelector,pAddress)
+  function updateLatLngInputs(pGLatLng)
   {
-    var adminArea = $("body.parks.admin");
+    adminArea.find(".latitude:first").val(pGLatLng.lat());
+    adminArea.find(".longitude:first").val(pGLatLng.lng());
+  }
+  function updateMap(pSelector,pAddress,pPlotmarker,pUpateLatLng)
+  {
     var adminMap = new GMap2($(pSelector)[0]);
-    var address = $("body.parks.admin .address:first");
     var geoCoder = new GClientGeocoder();
     
     if(pAddress.length==0)
     {
-      //default value--certainly not the best way to do this.
       pAddress = "Grand Rapids,MI";
-      address.val(pAddress);
+      //address.val(pAddress);
     }
     
-    geoCoder.getLatLng(address.val(),function(pLatLng){
+    geoCoder.getLatLng(pAddress,function(pLatLng){
       if(pLatLng===null)
       {
         logMapMessage("Address not found.");
@@ -30,17 +33,18 @@ $(document).ready(function() {
       {
         adminMap.setCenter(pLatLng, 10);
         adminMap.clearOverlays();
-        var marker = new GMarker(pLatLng);
-        adminArea.find(".latitude").val(pLatLng.lat());
-        adminArea.find(".longitude").val(pLatLng.lng());
-        adminMap.addOverlay(marker);  
+        if(pUpateLatLng)
+          updateLatLngInputs(pLatLng);
+        if(pPlotmarker)
+        {
+          var marker = new GMarker(pLatLng);
+          adminMap.addOverlay(marker);
+        }
       }
     });
   }
   
   $('body.parks.admin .update-address:first').click(function() {
-    var adminArea = $("body.parks.admin");
-    var address =  adminArea.find(".address:first");
     var geoCoder = new GClientGeocoder();
     geoCoder.getLatLng(address.val(),function(pLatLng){
       if(pLatLng===null)
@@ -48,16 +52,19 @@ $(document).ready(function() {
       else
       {
         logMapMessage("Address found successfully.");
-        updateMap("#adminMap",address.val());
+        updateMap("#admin-map",address.val(),true,true);
       }
     }); 
     return false;
   });
   
+  
   if($("#admin-map").length>0)
   {
-    var address = $("body.parks.admin .address:first");
-    updateMap("#admin-map",address.val());
+    if(adminArea.find(".latitude").val().length>0 && adminArea.find(".longitude").val().length>0)
+      updateMap("#admin-map",address.val(),true,true);
+    else
+      updateMap("#admin-map","Grand Rapids, MI",false,false);
   }
   
 });
