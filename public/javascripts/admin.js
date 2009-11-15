@@ -8,14 +8,16 @@ $(document).ready(function() {
   
   function updateMap(pSelector,pAddress)
   {
+    var adminArea = $("body.parks.admin");
     var adminMap = new GMap2($(pSelector)[0]);
     var address = $("body.parks.admin .address:first");
     var geoCoder = new GClientGeocoder();
     
-    if(address.val().length==0)
+    if(pAddress.length==0)
     {
       //default value--certainly not the best way to do this.
-      address.val("Grand Rapids, MI");
+      pAddress = "Grand Rapids,MI";
+      address.val(pAddress);
     }
     
     geoCoder.getLatLng(address.val(),function(pLatLng){
@@ -29,6 +31,8 @@ $(document).ready(function() {
         adminMap.setCenter(pLatLng, 10);
         adminMap.clearOverlays();
         var marker = new GMarker(pLatLng);
+        adminArea.find(".latitude").val(pLatLng.lat());
+        adminArea.find(".longitude").val(pLatLng.lng());
         adminMap.addOverlay(marker);  
       }
     });
@@ -43,8 +47,6 @@ $(document).ready(function() {
         logMapMessage("Address could not be found");
       else
       {
-        adminArea.find(".latitude").val(pLatLng.lat());
-        adminArea.find(".longitude").val(pLatLng.lng());
         logMapMessage("Address found successfully.");
         updateMap("#adminMap",address.val());
       }
