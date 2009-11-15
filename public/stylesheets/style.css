@@ -170,6 +170,25 @@ body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
 
+body.parks.show .search-toolbar
+{
+  height:20px;
+  background-color:#b3d43d;
+  text-align:right;
+  padding:0 10px 0 0;
+}
+body.parks.show .search-toolbar a
+{
+  color:#fff;
+  font-weight:bold;
+}
+body.parks.show .search-window
+{
+  width:850px;
+  background-color:#b3d43d;
+  height:400px;
+  display:none;
+}
 body.parks.show .flickr-pool-slideshow {
   position: relative;
 }

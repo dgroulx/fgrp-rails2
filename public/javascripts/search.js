@@ -97,6 +97,26 @@
       }
     });
     
+    $("body.parks.show a.find-more-parks").click(function(){
+      var searchWindow = $("body.parks.show .search-window");
+      var showText = "...find more parks!";
+      var hideText = "i'm done searching";
+      
+      if(searchWindow.css("display") == "none")
+      {
+        //not currently shown, show and change text
+        searchWindow.slideDown();
+        $(this).html(hideText);
+      }
+      else
+      {
+        //shown, hide and change text
+        searchWindow.slideUp();
+        $(this).html(showText);
+      }
+      return false;
+    });
+    
   });
 
 })();

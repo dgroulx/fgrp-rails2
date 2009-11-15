@@ -1,54 +1,66 @@
 <% content_for :section, "parks show" %>
-
+<div class="search-toolbar">
+  <a class='find-more-parks' href="#">...find more parks!</a>
+</div>
+<div class='search-window'>
+<%= render :partial=>"shared/searchmap"%>
+</div>
 <div class='park'>
-  <p class='name'>
-    <b>Name:</b>
-    <%=h @park.name %>
-  </p>
+  <div class='basic section'>
+    <div class='grid_6 alpha'>
+      <div class="flickr-pool-slideshow" data-groupid="<%= @park.flickr_pool_id %>">
+      </div>
+      <div class="simple_map" data-latitude="<%= @park.latitude %>" data-longitude="<%= @park.longitude %>">
+      </div>
+      <div class='contactinfo'>
+        <b>Contact Information</b>
+        <%= @park.contact_info %>
+      </div>
+    </div>
+    <div class='grid_10 omega'>
+      <h1 class='name'>
+        <%=h @park.name %>
+      </h1>
+      <div>
+        <%= link_to 'Edit', edit_park_path(@park) %> |
+        <%= link_to 'Back', parks_path %>
+      </div>
 
-  <p class='address'>
-    <b>Address:</b>
-    <%=h @park.address %>
-  </p>
-  
-  <p class='vimeo_embed'>
-    <b>Vimeo Embed</b>
-    <%= @park.vimeo_embed %>
-  </p>
-  
-  <p class='park_size'>
-    <b>Park size:</b>
-    <%=h @park.park_size %>
-  </p>
-  
-  <p class='history'>
-    <b>History:</b>
-    <%= @park.history %>
-  </p>
-  
-  <div class="flickr-pool-slideshow" data-groupid="<%= @park.flickr_pool_id %>">
+      <div class='address'>
+          <b>You can find this park here:</b>
+          <%=h @park.address %>
+      </div>
+      <div class='parksize'>
+        <%=h @park.park_size %> acres
+      </div>
+      <p class='history'>
+        <b>History:</b>
+        <%= @park.history %>
+      </p>
+
+      <ul class='amenities'>
+        <% @park.park_amenities.each do |amenity| %>
+          <li class='amenity'>
+            <span class='name'>
+              <%= amenity.name %>
+            </span>
+            <span class='description'>
+              <%= amenity.description %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class='vimeo_embed'>
+        <b>Vimeo Embed</b>
+        <%= @park.vimeo_embed %>
+      </p>
+      
+    </div>
   </div>
+  <div class='clear'></div>
+
   
-  <p class='contact_info'>
-    <b>Contact info:</b>
-    <%= @park.contact_info %>
-  </p>
-  <ul class='amenities'>
-    <% @park.park_amenities.each do |amenity| %>
-      <li class='amenity'>
-        <span class='name'>
-          <%= amenity.name %>
-        </span>
-        <span class='description'>
-          <%= amenity.description %>
-        </span>
-      </li>
-    <% end %>
-  </ul>
 </div>
 
-<div class="simple_map" data-latitude="<%= @park.latitude %>" data-longitude="<%= @park.longitude %>">
-</div>
 
-<%= link_to 'Edit', edit_park_path(@park) %> |
-<%= link_to 'Back', parks_path %>
