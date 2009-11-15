@@ -335,6 +335,14 @@ body.parks.show .contactinfo
 
 body.explore .park_category h2 {
   margin: 5px 0;
+  text-indent: -9999px;
+}
+
+body.explore .about_our_parks h2 {
+  background-image: url(/images/our_parks.png);
+  height: 32px;
+  text-indent: -9999px;
+  width: 164px;
 }
 
 body.explore .about_our_parks {
@@ -343,6 +351,27 @@ body.explore .about_our_parks {
 
 body.explore .about_our_parks p {
   font-size: 1.5em;
+}
+
+body.explore .northeast h2 {
+  background-image: url(/images/northeast.png);
+  height: 16px;
+  width: 134px;
+}
+body.explore .northwest h2 {
+  background-image: url(/images/northwest.png);
+  height: 16px;
+  width: 140px;
+}
+body.explore .southeast h2 {
+  background-image: url(/images/southeast.png);
+  height: 16px;
+  width: 132px;
+}
+body.explore .southwest h2 {
+  background-image: url(/images/southwest.png);
+  height: 16px;
+  width: 138px;
 }
 
 body.explore .northeast ul { background-color: #7B8E22 }
