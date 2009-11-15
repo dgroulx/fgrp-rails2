@@ -1,23 +1,29 @@
-<% section "parks index" %>
-<%= render :partial=>"shared/searchmap"%>
-<h1>Listing parks</h1>
+<% section "admin parks index" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+<div class="actions">
+<%= link_to 'Add a new park', new_park_path %>
+</div>
 
-<% @parks.each do |park| %>
-  <tr class="park">
-    <td><%=h park.name %></td>
-    <td><%= link_to 'Show', park %></td>
-    <td><%= link_to 'Edit', edit_park_path(park) %></td>
-    <td><%= link_to 'Links', park_links_path(park) %></td>
-    <td><%= link_to 'Destroy', park, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<h4>Parks</h4>
+
+<ul class="parks">
+<% if @parks.empty? %>
+  <li class="no_parks">There are no parks</li>
+<% else %>
+  <% reset_cycle %>
+  <% @parks.each do |park| %>
+    <li class="park <%= cycle('odd', 'even') %>">
+      <div class="actions">
+        <%= link_to 'Links', park_links_path(park) %> |
+        <%= link_to "Edit", edit_park_path(park) %> |
+        <%= link_to "Delete", park_path(park), :method => "delete", :confirm => "Are you sure you want to delete #{park.name}?" %>
+      </div>
+      <span class="name">
+        <%= park.name %>
+      </span>
+    </li>
+  <% end %>
 <% end %>
-</table>
+</ul>
 
-<br />
 
-<%= link_to 'New park', new_park_path %>

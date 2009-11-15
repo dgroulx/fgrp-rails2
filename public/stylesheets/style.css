@@ -135,6 +135,11 @@ form div.errorExplanation{
 
 .admin_notice a {
   color: #fff;
+  text-decoration: none;
+}
+
+.admin_notice a.logout {
+  float: right;
 }
 
 
@@ -239,6 +244,34 @@ body.sessions.new form.session .form_item input {
 body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
+
+/* =admin 
+*/
+body.admin .actions {
+  float: right;
+}
+
+body.admin.amenities ul.amenities,
+body.admin.parks ul.parks, {
+  list-style-type: none;
+}
+
+body.admin.amenities ul.amenities li,
+body.admin.parks ul.parks li {
+  margin-left: 0.25em;
+}
+
+body.admin.amenities ul.amenities li.even,
+body.admin.parks ul.parks li.even {
+  background-color: #EDF3FE;
+}
+
+body.admin.amenities ul.amenities li .actions,
+body.admin.parks ul.parks li .actions {
+  float: right;
+}
+
+
 /* =amenities 
 */
 body.admin.amenities form.amenity {
@@ -268,21 +301,6 @@ body.admin.amenities form.amenity fieldset {
   padding: 0.5em;
 }
 
-body.admin.amenities ul.amenities {
-  list-style-type: none;
-}
-
-body.admin.amenities ul.amenities li {
-  margin-left: 0.25em;
-}
-
-body.admin.amenities ul.amenities li.even {
-  background-color: #EDF3FE;
-}
-
-body.admin.amenities ul.amenities li .actions {
-  float: right;
-}
 
 /* =parks
 */
@@ -347,6 +365,21 @@ body.parks.show .contactinfo
 {
   padding:10px 0 0 10px;
 }
+
+/* =parks index
+*/
+
+body.parks.index ul.parks {
+  list-style-type: none;
+}
+
+body.parks.index ul.actions {
+  float: right;
+}
+
+
+/* =explore
+*/
 
 body.explore .park_category h2 {
   margin: 5px 0;

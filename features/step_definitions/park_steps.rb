@@ -7,7 +7,7 @@ Then /^I should see the park:$/ do |table|
 end
 
 When /^I destroy the "([^\"]*)" park$/ do |park_name|
-  click_link_within ".park:contains('#{park_name}')", "Destroy"
+  click_link_within ".park:contains('#{park_name}')", "Delete"
 end
 
 Then /^I should see the park has the amenities:$/ do |table|
