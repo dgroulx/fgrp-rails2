@@ -21,6 +21,8 @@
 <body class="<%= yield(:section) %>">
   
 <div class="admin_notice">
+  <%= link_to "logout", logout_path, :method => :delete, :class => "logout" %>
+
   You are currently logged in as an admin. You can click
   <%= link_to "here", "http://friendsofgrparks.org/"%>
   to go back to the public site.
