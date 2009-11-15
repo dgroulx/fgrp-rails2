@@ -12,16 +12,15 @@
     
     var map = new GMap2(document.getElementById("map"));
     window.map = map;
-    //map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
     
-		function preparePark() {
-      this.latlng = new GLatLng(this.park.latitude, this.park.longitude);
+    function preparePark() {
+      this.latlng = new GLatLng(this.latitude, this.longitude);
       this.marker = new GMarker(this.latlng);
 
       var infoWindowData = {
-        name: this.park.name,
-        address: this.park.address,
-        link: {"@href": this.park.url }
+        name: this.name,
+        address: this.address,
+        link: {"@href": this.url }
       };
       
       GEvent.addListener(this.marker, "click", function() {
@@ -62,7 +61,7 @@
       var options = $.merge(
         [{"@value": "all", innerHTML: "All Parks"}],
         $.map(amenities, function(amenity, index){ 
-          return {"@value": index, "innerHTML": amenity.name}; }));
+          return {"@value": index, "innerHTML": amenity}; }));
         
       var dropDown = $('<select><option /></select>').
         expand(options).
@@ -84,15 +83,15 @@
       populateAmenities(data);
     }
 
-		// Get park data on page load
-		//this area below needs rewriting.
-		var retrievedData = {parks: false, amenities:false};
-		$.getJSON('/amenities.json', function(amenities) {
-			retrievedData.amenities = amenities;
-			$.getJSON("/parks.json",function(parks){
-  			  retrievedData.parks = parks;
-  			  processData(retrievedData);
-  		});
-		});
-		
+    // Get park data on page load
+    //this area below needs rewriting.
+    var retrievedData = {parks: false, amenities:false};
+    $.getJSON("/parks.json",function(retrievedData){
+      if (retrievedData.parks.length > 0) {
+        processData(retrievedData);
+      } else {
+        map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
+      }
+    });
+    
   });

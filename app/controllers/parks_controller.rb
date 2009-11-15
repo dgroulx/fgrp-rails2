@@ -8,7 +8,7 @@ class ParksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @parks }
-      format.json  { render :json => @parks }
+      format.json  { render :json => ParksPresenter.new(Park.scoped(:order => "name")) }
     end
   end
 
