@@ -72,6 +72,14 @@ body.parks .top-nav li.parks a
 	height:200px;
 }
 
+body .share-this
+{
+  /*position:absolute;
+  right:0;
+  bottom:-50px;*/
+  text-align:right;
+}
+
 /* =errors
 */
 div.fieldWithErrors {
@@ -310,6 +318,10 @@ body.parks.show .park
   background-repeat:repeat-y;
   
 }
+body.parks.show .park h1
+{
+  color:#77b141;
+}
 body.parks.show .search-toolbar
 {
   height:20px;
@@ -330,7 +342,6 @@ body.parks.show .search-window
   height:400px;
   display:none;
 }
-
 body.parks.show .flickr-pool-slideshow {
   position: relative;
 }
@@ -364,6 +375,10 @@ body.parks.show .simple_map {
 body.parks.show .contactinfo
 {
   padding:10px 0 0 10px;
+}
+body.parks.show .amenity .description
+{
+  color:#818286;
 }
 
 /* =parks index

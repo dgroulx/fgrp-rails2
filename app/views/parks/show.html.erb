@@ -31,25 +31,32 @@
           <%=h @park.address %>
       </div>
       <div class='parksize'>
-        <%=h @park.park_size %> acres
+        <b>Park Size: </b><%=h @park.park_size %> acres
+      </div>
+      <div class='parklinks'>
+          <b>Park links:</b>
+        <ul>
+        </ul>
       </div>
       <p class='history'>
         <b>History:</b>
         <%= @park.history %>
       </p>
-
-      <ul class='amenities'>
-        <% @park.park_amenities.each do |amenity| %>
-          <li class='amenity'>
-            <span class='name'>
-              <%= amenity.name %>
-            </span>
-            <span class='description'>
-              <%= amenity.description %>
-            </span>
-          </li>
-        <% end %>
-      </ul>
+      <div class="amenities-area">
+        <b>Amenities of this park:
+        <ul class="amenities">
+          <% @park.park_amenities.each do |amenity| %>
+            <li class='amenity'>
+              <span class='name'>
+                <%= amenity.name %>
+              </span>
+              <span class='description'>
+                <%= amenity.description %>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
       <p class='vimeo_embed'>
         <%= @park.vimeo_embed %>

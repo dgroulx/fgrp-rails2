@@ -2,8 +2,6 @@
 
   var GRAND_RAPIDS = [42.935, -85.65];
   var DEFAULT_ZOOM = 10;
-  var array = [];
-  array[80] = 1;
 
   jQuery(function($) {
     if($("#map").length==0)
