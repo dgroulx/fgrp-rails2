@@ -1,26 +1,29 @@
 <ul>
 <% @links.each do |link| %>
   <li class='link'>
-    <b><%= link_to link.title, link.href %></b>
+    <b><%= link_to link.title, link.url %></b>
     <%= link_to "Edit", edit_park_link_path(@park, link) %>
     <%= link_to "Destroy", [@park, link], :method => :delete, :confirm => 'Are you sure?' %>
   </li>
 <% end %>
 </ul>
 
-<% form_for @link, :url => [@park, @link] do |f| %>
-  <p class="name">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-
-  <p class="href">
-    <%= f.label :href, "URL" %>
-    <%= f.text_field :href %>
-  </p>
-
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-
-<% end %>
+<div class='add_link'>
+  <b>Add a new link</b>
+  <% form_for @link, :url => [@park, @link] do |f| %>
+    <%= f.error_messages %>
+    <p class="name">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+  
+    <p class="href">
+      <%= f.label :url, "URL" %>
+      <%= f.text_field :url %>
+    </p>
+  
+    <p>
+      <%= f.submit 'Create' %>
+    </p>
+  <% end %>
+</div>
