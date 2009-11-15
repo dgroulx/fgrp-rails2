@@ -7,6 +7,7 @@ class LinksController < ApplicationController
 
   def create
     @link = @park.links.new(params[:link])
+    @links = []
 
     respond_to do |format|
       if @link.save

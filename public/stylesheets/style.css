@@ -1,8 +1,4 @@
 /* Html Elements */
-html
-{
-
-}
 h2
 {
 	color:#669900;
@@ -77,32 +73,6 @@ a{
 {
 	position:relative;
 }
-/** Admin Toolbar (floating) **/
-#admin-toolbar,
-#search-window
-{
-	z-index:100;
-}
-#admin-toolbar
-{
-	height:25px;
-	background-color:#99CCFF;
-	position:fixed;
-	top:75px; /* Height of #header */
-	width:940px;
-}
-#admin-toolbar ul,
-#admin-toolbar li
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-#admin-toolbar li
-{
-	float:left;
-	margin:0 10px 0 10px;
-}
 
 /** Form Elements **/
 .textbox
@@ -111,10 +81,6 @@ a{
 }
 
 /** Sections **/
-.sections
-{
-	margin:100px 0 0 0; /* Make sure that the top margin is the same height as #admin-toolbar */
-}
 .section .left,
 .section .right
 {

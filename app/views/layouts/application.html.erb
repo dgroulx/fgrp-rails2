@@ -10,19 +10,12 @@
 	<%= stylesheet_link_tag 'text' %>
 	<%= stylesheet_link_tag 'grid850' %>
 	<%= stylesheet_link_tag 'style' %>
-	<%= javascript_include_tag "jquery.js" %>
-	<%= javascript_include_tag "jquery.expand.js" %>
-	<%= javascript_include_tag "jquery.innerfade.js" %>
-	<%= javascript_include_tag "application.js" %>
+	<!-- -->
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAwIRxdoIRFaF6xG-_lFH6RBTh3EVmyytS48scZT_LeMRImnnkbhRenhxIzmz2fKQhrR6vyYN7CRJvtA"></script>
+	<%= javascript_include_tag "jquery","jquery.expand","jquery.innerfade", "application","tiny_mce/tiny_mce","tiny_mce/jquery.tinymce", "tiny_mce/tiny_mce_config.js", "admin","search", :cache => "base" %>
 	<script type="text/javascript">
 		google.load("maps", "2");
 	</script>
-	<%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
-	<%= javascript_include_tag "tiny_mce/jquery.tinymce.js" %>
-	<%= javascript_include_tag "admin.js" %>
-	<%= javascript_include_tag "search.js" %>
-	
 </head>
 <body class="<%= yield(:section) %>">
 
@@ -33,7 +26,6 @@
 
 	<div id="main">
     <%= flash_messages %>
-
     <%= yield %>
   	</div>
 	<div id="footer"></div>

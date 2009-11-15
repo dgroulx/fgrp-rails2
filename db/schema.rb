@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091115141748) do
+ActiveRecord::Schema.define(:version => 20091115141706) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20091115141748) do
 
   create_table "links", :force => true do |t|
     t.string   "title"
-    t.string   "href"
+    t.string   "url"
     t.integer  "park_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20091115141748) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "park_size"
-    t.text     "address"
+    t.string   "address"
     t.text     "vimeo_embed"
     t.string   "flickr_pool_id"
   end
