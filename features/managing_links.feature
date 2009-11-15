@@ -43,3 +43,13 @@ Feature: Managing links
     And I should be on the links page for the "Free parking" park
     And I should see "YouTube"
     And I should not see "Pineapples"
+    
+  Scenario: Admin trying to add an invalid link
+    Given I have signed in with "zach@zach.com/bananapanic"
+    And a park exists with a name of "Free parking"
+    When I go to the links page for the "Free parking" park
+    And I fill in "Title" with "lols"
+    And I fill in "URL" with "http/badgerbadgerbadger.com"
+    And I press "Create"
+    Then I should see "Url is invalid"
+    And I should be on the links page for the "Free parking" park
