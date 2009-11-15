@@ -1,124 +1,111 @@
-<% form_for(park) do |f| %>
+<% form_for park, :html => { :class => "park" } do |f| %>
   <%= f.error_messages %>
 
-  <div class='section'>
-    <div class='grid_3'>
-      <%= f.label :name %>
-    </div>
-    <div class='grid_13'>
+  <fieldset>
+    <h4>Basic Park Info</h4>
+    <p class="notes">...</p>
+
+    <div class="form_item">
+      <%= f.label :name %> 
       <%= f.text_field :name, :class => 'textbox name' %>
     </div>
-  </div>
 
-  <div class='section'>
-    <div class='grid_3'>
-      <%= f.label :park_size %>
+    <div class="form_item">
+      <%= f.label :park_size %> 
+      <%= f.text_field :park_size, :class => 'parksize textbox' %>
     </div>
-    <div class='grid_13'>
-      <%= f.text_field :park_size, :class => 'textbox parksize' %>
-      Enter the park size in acres
-    </div>
-  </div>
-  
-  <div class='section'>
-    <div class='grid_3'>
-      <%= f.label :section, "City section" %>
-    </div>
-    <div class='grid_13'>
+
+    <div class="form_item">
+      <%= f.label :section, "City section" %> 
       <%= f.select :section, Park::SECTIONS %>
     </div>
-    <div class='clear'></div>
-  </div>
-  
-  <div class='section'>
-    <div class='grid_3'>
-      <%= f.label :address %>
-    </div>
-    <div class='grid_13'>
-      <%= f.text_field :address  , :class => 'textbox address' %>
-    </div>
-  </div>
-  
-  <div class='section location'>
-    <div class='grid_3'>
-      <label>Location</label>
-    </div>
-    <div class='grid_13'>
-      <a class='update-address' href="#">Get from address</a>
-      
-      (<%= f.label :latitude, "Latitude:" %>
-      <%= f.text_field :latitude, :class => 'textbox latitude', :size => 8 %>
-      <%= f.label :longitude, "Longitude:" %>
-      <%= f.text_field :longitude, :class => 'textbox longitude', :size => 8 %>
-      <a class='update-map' href="#">Update map</a>)
-      
-      <div class='message'></div>
-      <div class="admin-map"></div>
-    </div>
-  </div>
-  
-  <div class='section'>
-    <div class='grid_3'>
-      <%= f.label :history %>
-    </div>
-    <div class='grid_13'>
+
+    <div class="form_item">
+      <%= f.label :history %> 
       <%= f.text_area :history, :class => 'tinymce history' %>
     </div>
-  </div>
+
+  </fieldset>
   
-  <div class='section'>
-    <div class='grid_3'>
+  <fieldset>
+    <h4>Park Contact Info</h4>
+    <p class="notes">...</p>
+    <div class="form_item">
       <%= f.label :contact_info %>
-    </div>
-    <div class='grid_13'>
       <%= f.text_area :contact_info, :class => 'tinymce contactinfo' %>
     </div>
-  </div>
+  </fieldset>
 
-  <div class='section'>
-    <div class='grid_3'>
+  <fieldset class="location">
+    <h4>Map It!</h4>
+    <p class="notes">...</p>
+
+    <div class="form_item">
+      <%= f.label :address %>
+      <%= f.text_field :address, :class => 'textbox address' %>
+      <a class='update-address' href="#">Map it from address</a>
+    </div>
+
+    <div class='form_item latlng'>
+      <%= f.label :latitude, "Latitude:" %>
+      <%= f.text_field :latitude, :class => 'textbox latitude', :size => 8 %>
+      <%= f.label :longitude, "Longitude:", :class => "longitude" %>
+      <%= f.text_field :longitude, :class => 'textbox longitude', :size => 8 %>
+      <a class='update-map' href="#">Map it from lat/lng</a>
+    </div>
+
+    <div class='message'></div>
+    <div class="admin-map"></div>
+    
+  </fieldset>
+
+  <fieldset class="video">
+    <h4>Video</h4>
+    <p class="notes">Copy and the paste the embed tag for your video</p>
+    
+    <div class="form_item">
       <%= f.label :vimeo_embed %>
+      <%= f.text_area :vimeo_embed, :class => 'textbox vimeoembed' %>
     </div>
-    <div class='grid_13'>
-          <%= f.text_area :vimeo_embed, :class => 'textbox vimeoembed' %>
-      Copy and the paste the embed tag for your video
+  </fieldset>
+
+  <fieldset>
+    <h4>Flickr</h4>
+    <p class="notes">
+      To find your group pool id, go to <%= link_to "idGetter", "http://idgettr.com/" %>
+      and enter your group's URL, then copy and paste the id it returns here. Example id: 89888984@N00
+    </p>
+    <div class="form_item">
+      <%= f.label :flickr_pool_id, "Flickr pool id" %>
+      <%= f.text_field :flickr_pool_id, :class => 'textbox' %>
     </div>
-  </div>
-  <div class='section'>
-      <div class='grid_3'>
-          <%= f.label :flickr_pool_id, "Flickr pool id" %>
-      </div>
-      <div class='grid_13'>
-          <%= f.text_field :flickr_pool_id, :class => 'textbox' %>
-      </div>
-  </div>
-  
-  <div class='section amenities'>
-    <% park.park_amenities.build if park.park_amenities.empty? %>
-    <% f.fields_for_with_template :park_amenities do |a| %>
-      <div class="amenity">
-        <%= a.hidden_field :_delete, :value => 0 %>
-        <div class='left'>
+  </fieldset>
+
+  <fieldset>
+    <h4>Amenities</h4>
+    <p class="notes">...</p>
+
+    <div class='amenities'>
+      <% park.park_amenities.build if park.park_amenities.empty? %>
+      <% f.fields_for_with_template :park_amenities do |a| %>
+        <div class="amenity">
+          <%= a.hidden_field :_delete, :value => 0 %>
           <%= a.label :amenity_id, "Amenity" %>
-        </div>
-        <div class='right'>
           <%= a.collection_select :amenity_id, Amenity.all, :id, :name, :include_blank => true %>
-        </div>
-        <div class='clear'></div>
-        <div class='left'>
           <%= a.label :description, "Amenity description" %>
-        </div>
-        <div class='right'>
           <%= a.text_field :description %>
-          <%= link_to "Delete", "#", :class => 'delete' %>
+          <%= link_to "Remove", "#", :class => 'delete' %>
         </div>
-        <div class='clear'></div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <%= link_to "Add amenity", "#", :class => 'add_amenity' %>
+    <%= link_to "Add another amenity", "#", :class => 'add_amenity' %>
+  </fieldset>
 
-
+  <fieldset>
+    <h4>Resource Links</h4>
+    <p class="notes">...</p>
+  </fieldset>
+  
   <% if park.new_record? %>
     <%= f.submit 'Create' %>
   <% else %>

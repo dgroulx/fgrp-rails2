@@ -1,10 +1,13 @@
 <% section "admin parks index" %>
 
-<div class="actions">
-<%= link_to 'Add a new park', new_park_path %>
-</div>
 
-<h4>Parks</h4>
+<h4>
+  <div class="actions">
+  <%= link_to 'Add a new park', new_park_path %>
+  </div>
+  
+  Parks
+</h4>
 
 <ul class="parks">
 <% if @parks.empty? %>

@@ -24,6 +24,7 @@ $(document).ready(function() {
       var latlng = new GLatLng(lat, lng);
       element.find(".message").html("");
       updateLatLng(latlng);
+      return false;
     }
     
     
@@ -40,6 +41,7 @@ $(document).ready(function() {
     
     function updateLatLngFromAddress() {
       geolocate(address.val(), updateLatLng)
+      return false;
     }
     
     element.
@@ -55,7 +57,7 @@ $(document).ready(function() {
     else
       updateLatLngFromForm();
     
-  })($("body.parks.admin .location.section"), $("body.parks.admin input.address"));
+  })($("body.parks.admin .location"), $("body.parks.admin input.address"));
 
 
   // amenities on teh parks admin

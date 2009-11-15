@@ -160,7 +160,7 @@ form div.errorExplanation{
 /** Form Elements **/
 .textbox
 {
-	border:1px solid #000;
+/*  border:1px solid #000;*/
 }
 
 /** Sections **/
@@ -233,6 +233,10 @@ body.admin .actions {
   float: right;
 }
 
+body.admin.parks h4 .actions {
+  font-size: 0.9em;
+}
+
 body.admin.amenities ul.amenities,
 body.admin.parks ul.parks, {
   list-style-type: none;
@@ -253,36 +257,75 @@ body.admin.parks ul.parks li .actions {
   float: right;
 }
 
+body.admin form .form_item {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+body.admin form .form_item label { 
+  display: block;
+  float: left;
+  width: 100px;
+}
+
+body.admin.parks form .location .form_item input.latitude {
+  margin-right: 0.5em;
+}
+
+body.admin.parks form .location .form_item label.longitude { 
+  display: inline;
+  float: none;
+}
+
+body.admin.parks form .form_item.location input.address {
+  width: 300px;
+}
+
 
 /* =amenities 
 */
-body.admin.amenities form.amenity {
+body.admin.amenities form.amenity,
+body.admin.parks form.park {
   background-color: #F9F4D1;
   border: 1px solid #E3DDB1;
   margin-bottom: 1.5em;
   padding: 0.5em;
 }
 
-body.admin.amenities form.amenity h4 {
+body.admin.amenities form.amenity h4,
+body.admin.parks form.park h4 {
   font-size: 1.25em;
   font-weight: bold;
   margin: 0;
 }
 
-body.admin.amenities form.amenity .notes {
+body.admin.amenities form.amenity .notes,
+body.admin.parks form.park .notes {
   color:#666666;
   margin:0 0 0.5em;
   font-size: 0.9em;
   font-style: italic;
 }
 
-body.admin.amenities form.amenity fieldset {
+body.admin.amenities form.amenity fieldset,
+body.admin.parks form.park fieldset {
   background-color:#E3DDB1;
   margin-bottom:0.5em;
   overflow:hidden;
   padding: 0.5em;
 }
 
+body.admin.parks form .amenities {
+  margin-bottom: 1em; 
+}
+
+body.admin.parks form fieldset.video textarea {
+  width: 600px;
+}
+
+body.admin.parks .admin-map {
+  margin-left: 100px;
+}
 
 /* =parks
 */
