@@ -41,7 +41,7 @@ Feature: Amenities crud
     And the "Name" field should contain "Basketball Curt"
 
     When I fill in "Name" with "Basketball Court"
-    And I press "Save"
+    And I press "Update"
     Then I should see "Basketball Court was updated"
     And I should be on the amenities page
 

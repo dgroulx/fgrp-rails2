@@ -19,10 +19,16 @@
 	
 </head>
 <body class="<%= yield(:section) %>">
+  
+<div class="admin_notice">
+  You are currently logged in as an admin. You can click
+  <%= link_to "here", "http://friendsofgrparks.org/"%>
+  to go back to the public site.
+</div>
 
 <div class='container_16'>
 	<div id="header">
-		<%= render :partial=>"shared/header" %>
+		<%= render :partial=>"shared/admin_header" %>
 	</div>
 	<div id="main">
     <%= flash_messages %>
