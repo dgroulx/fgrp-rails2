@@ -80,7 +80,8 @@
           <%= f.text_field :flickr_pool_id, :class => 'textbox' %>
       </div>
   </div>
-  <div class='section'>
+  
+  <div class='section amenities'>
     <% park.park_amenities.build if park.park_amenities.empty? %>
     <% f.fields_for_with_template :park_amenities do |a| %>
       <div class="amenity">
@@ -102,10 +103,6 @@
         <div class='clear'></div>
     </div>
     <% end %>
-  </div>
-  <div class="amenities">
-    
-
   </div>
   <%= link_to "Add amenity", "#", :class => 'add_amenity' %>
 
