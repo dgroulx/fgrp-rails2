@@ -1,12 +1,30 @@
-<%= link_to "New Amenity", new_amenity_path %>
+<% section "admin amenities index" %>
+
+<% form_for @amenity, :html => { :class => "amenity" } do |f| %>
+  <h4>Add New Amenity</h4>
+  <p class="notes">Adding an amenity here will make it available for each park. </p>
+  <fieldset>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+    <%= f.submit "Add Amenity" %>
+  </fieldset>
+<% end %>
+
+<h4>Amenities</h4>
 <ul class="amenities">
+<% if @amenities.empty? %>
+  <li class="no_amenities">There are no amenities</li>
+<% else %>
+  <% reset_cycle %>
   <% @amenities.each do |amenity| %>
-    <li class="amenity">
+    <li class="amenity <%= cycle('odd', 'even') %>">
+      <div class="actions">
+        <%= link_to "Edit", edit_amenity_path(amenity) %>
+        <%= link_to "Delete", amenity_path(amenity), :method => "delete", :confirm => "Are you sure you want to delete #{amenity.name}?" %>
+      </div>
       <span class="name">
         <%= amenity.name %>
       </span>
-      <%= link_to "Edit", edit_amenity_path(amenity) %>
-      <%= link_to "Delete", amenity_path(amenity), :method => "delete", :confirm => "Are you sure you want to delete #{amenity.name}?" %>
     </li>
   <% end %>
+<% end %>
 </ul>

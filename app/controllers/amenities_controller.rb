@@ -2,10 +2,6 @@ class AmenitiesController < ApplicationController
   layout 'admin'
   before_filter :authenticate
 
-  def new
-    @amenity = Amenity.new
-  end
-
   def create
     @amenity = Amenity.new params[:amenity]
     
@@ -13,11 +9,13 @@ class AmenitiesController < ApplicationController
       flash[:notice] = "#{@amenity.name} was created."
       redirect_to amenities_path
     else
-      render :action => "new"
+      @amenities = Amenity.all(:order => "name ASC")
+      render :action => "index"
     end
   end
 
   def index
+    @amenity = Amenity.new
     @amenities = Amenity.all(:order => "name ASC")
     
     respond_to do |format|

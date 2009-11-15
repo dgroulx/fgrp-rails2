@@ -21,9 +21,6 @@ module NavigationHelpers
     when /the "([^\"]+)" park's page/
       park_path(Park.find_by_name($1))
 
-
-    when /the new amenity page/i
-      new_amenity_path
     when /the amenities page/i
       amenities_path
     when /the "([^"]+)" amenity's edit page/i

@@ -5,7 +5,8 @@ h2
 }
 h4
 {
-	color:#336699;
+	color:#666666;
+	margin: 0;
 }
 
 a{
@@ -68,6 +69,58 @@ a{
 	background-repeat:repeat-x;
 	height:200px;
 }
+
+/* =errors
+*/
+div.fieldWithErrors {
+  display: inline;
+}
+
+div.fieldWithErrors label {
+  font-weight: bold;
+  color: #CC0000;
+}
+
+div.errorExplanation {
+  color: #c00; 
+  background-color: #FBE3E4;
+  border: 1px solid #FBC2C4;
+  background-image: url(../images/error.png);  
+}
+
+div.errorExplanation h2 {
+  color: #c00;  
+}
+
+div.errorExplanation p {
+  margin-bottom: 0;
+}
+
+div.errorExplanation a {
+  color:#c00;
+}
+
+div.errorExplanation {
+  padding: 1.5em 1.5em 1.5em 4.5em;
+  background-position: 1em 0.95em;
+  background-repeat: no-repeat;
+}
+
+div.errorExplanation h2 {
+  line-height: 1;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+div.errorExplanation *:last-child {
+  margin-bottom: 0;
+}
+
+form div.errorExplanation{
+  margin-bottom: 1.5em
+}
+
+
 /** Main Area **/
 #main
 {
@@ -170,6 +223,55 @@ body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
 
+/* =amenities 
+*/
+body.admin.amenities form.amenity {
+  background-color: #F9F4D1;
+  border: 1px solid #E3DDB1;
+  margin-bottom: 1.5em;
+  padding: 0.5em;
+  width: 600px;
+}
+
+body.admin.amenities form.amenity h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0;
+}
+
+body.admin.amenities form.amenity .notes {
+  color:#666666;
+  margin:0 0 0.5em;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+body.admin.amenities form.amenity fieldset {
+  background-color:#E3DDB1;
+  margin-bottom:0.5em;
+  overflow:hidden;
+  padding: 0.5em;
+}
+
+body.admin.amenities ul.amenities {
+  list-style-type: none;
+  width: 600px;
+}
+
+body.admin.amenities ul.amenities li {
+  margin-left: 0.25em;
+}
+
+body.admin.amenities ul.amenities li.even {
+  background-color: #EDF3FE;
+}
+
+body.admin.amenities ul.amenities li .actions {
+  float: right;
+}
+
+/* =parks
+*/
 body.parks.show .search-toolbar
 {
   height:20px;
@@ -177,6 +279,7 @@ body.parks.show .search-toolbar
   text-align:right;
   padding:0 10px 0 0;
 }
+
 body.parks.show .search-toolbar a
 {
   color:#fff;
@@ -189,6 +292,7 @@ body.parks.show .search-window
   height:400px;
   display:none;
 }
+
 body.parks.show .flickr-pool-slideshow {
   position: relative;
 }

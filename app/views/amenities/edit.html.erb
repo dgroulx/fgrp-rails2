@@ -1,4 +1,9 @@
-<% form_for @amenity do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f} %>
-  <%= f.submit "Save" %>
+<% section "admin amenities edit" %>
+
+<% form_for @amenity, :html => { :class => "amenity" } do |f| %>
+  <h4>Edit Amenity</h4>
+  <fieldset>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+    <%= f.submit "Update Amenity" %>
+  </fieldset>
 <% end %>
