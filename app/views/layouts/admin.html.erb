@@ -11,6 +11,12 @@
   <%= stylesheet_link_tag 'style' %>
 
 	<%= javascript_include_tag "jquery","jquery.expand","jquery.innerfade", "application", "tiny_mce/tiny_mce","tiny_mce/jquery.tinymce", "tiny_mce/tiny_mce_config.js", "admin","search", :cache => "admin" %>
+	
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAwIRxdoIRFaF6xG-_lFH6RBTh3EVmyytS48scZT_LeMRImnnkbhRenhxIzmz2fKQhrR6vyYN7CRJvtA"></script>
+	<script type="text/javascript">
+		google.load("maps", "2");
+	</script>
+	
 </head>
 <body class="<%= yield(:section) %>">
 
