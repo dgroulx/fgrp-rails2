@@ -19,7 +19,7 @@
     <li class="amenity <%= cycle('odd', 'even') %>">
       <div class="actions">
         <%= link_to "Edit", edit_amenity_path(amenity) %>
-        <%= link_to "Delete", amenity_path(amenity), :method => "delete", :confirm => "Are you sure you want to delete #{amenity.name}?" %>
+        <%= link_to "Delete", amenity_path(amenity), :method => "delete", :confirm => "Are you sure you want to delete #{amenity.name}? This will affect #{amenity.park_amenities.count} parks." %>
       </div>
       <span class="name">
         <%= amenity.name %>
