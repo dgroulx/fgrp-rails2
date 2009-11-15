@@ -71,14 +71,20 @@
         change(filterParks).
         appendTo(searchFieldElement);
     }
+    
+    function getBounds(data)
+    {
+      var bounds = new GLatLngBounds();;
+      $.each(data.parks, function() {
+        bounds.extend(this.latlng);
+      });
+      return bounds;
+    }
 
     function processData(data) {
       $.each(data.parks, preparePark);
       
-      var bounds = new GLatLngBounds();
-      $.each(data.parks, function() {
-        bounds.extend(this.latlng);
-      });
+      var bounds = getBounds(data);
       
       map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds)); 
       displayParks(data.parks);
@@ -86,33 +92,34 @@
     }
 
     // Get park data on page load
-    //this area below needs rewriting.
     var retrievedData = {parks: false, amenities:false};
-    $.getJSON("/parks.json",function(retrievedData){
-      if (retrievedData.parks.length > 0) {
-        processData(retrievedData);
-      } else {
-        map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), DEFAULT_ZOOM);
-      }
-    });
+    function getJSONData(pCallback)
+    {
+      $.getJSON("/parks.json",function(retrievedData){
+        if (retrievedData.parks.length > 0) {
+          processData(retrievedData);
+        } else {
+          map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), DEFAULT_ZOOM);
+        }
+        if(typeof(pCallback)!="undefined")
+          pCallback(retrievedData);
+      });
+    }
+    getJSONData();
     
     $("body.parks.show a.find-more-parks").click(function(){
       var searchWindow = $("body.parks.show .search-window");
       var showText = "...find more parks!";
       var hideText = "i'm done searching";
+      var link = $(this);
+      searchWindow.toggleClass("show-map");
       
-      if(searchWindow.css("display") == "none")
-      {
-        //not currently shown, show and change text
-        searchWindow.slideDown();
-        $(this).html(hideText);
-      }
+      if(searchWindow.hasClass("show-map"))
+        link.html(hideText);          
       else
-      {
-        //shown, hide and change text
-        searchWindow.slideUp();
-        $(this).html(showText);
-      }
+        link.html(showText);
+      
+      
       return false;
     });
     

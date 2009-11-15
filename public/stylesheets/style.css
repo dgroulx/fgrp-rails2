@@ -180,36 +180,10 @@ form div.errorExplanation{
 	height:400px;
 	z-index:0;
 }
-/** Search Window **/
-#search-window
-{
-	display:none;
-	width:940px;
-	height:400px;
-	background-color:#99CCFF;
-	position:fixed;
-	top:100px;
-	border-top:1px dashed #fff;
-}
-#search-map
-{
-	width:800px;
-	height:350px;
-	margin:auto;
-}
 body.parks.admin .admin-map
 {
   width:669px;
   height:250px;
-}
-#search-input-area
-{
-	width:500px;
-	margin:0px auto 10px auto;
-}
-#search-window-box
-{
-	width:450px;
 }
 
 /* =sessions/login page
@@ -339,9 +313,15 @@ body.parks.show .search-window
 {
   width:850px;
   background-color:#b3d43d;
-  height:400px;
-  display:none;
+  height:0px;
+  overflow:hidden;
 }
+body.parks.show .search-window.show-map
+{
+  height:auto;
+  overflow:auto;
+}
+
 body.parks.show .flickr-pool-slideshow {
   position: relative;
 }
