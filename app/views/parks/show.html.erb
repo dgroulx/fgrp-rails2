@@ -35,6 +35,9 @@
       <div class='parklinks'>
           <b>Park links:</b>
         <ul>
+          <% @park.links.each do |link| %>
+            <li><%= link_to link.title, link.url %></li>
+          <% end %>
         </ul>
       </div>
       <p class='history'>

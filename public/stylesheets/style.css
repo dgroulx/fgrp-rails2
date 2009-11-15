@@ -56,7 +56,8 @@ a{
 }
 .top-nav li.active a,
 body.admin.amenities .top-nav li.amenities a,
-body.parks .top-nav li.parks a
+body.parks .top-nav li.parks a,
+body.users .top-nav li.users a
 {
 	color:#76B143;
 }
@@ -238,17 +239,20 @@ body.admin.parks h4 .actions {
 }
 
 body.admin.amenities ul.amenities,
-body.admin.parks ul.parks, {
+body.admin.parks ul.parks,
+body.admin.users ul.users {
   list-style-type: none;
 }
 
 body.admin.amenities ul.amenities li,
-body.admin.parks ul.parks li {
+body.admin.parks ul.parks li,
+body.admin.users ul.users li {
   margin-left: 0.25em;
 }
 
 body.admin.amenities ul.amenities li.even,
-body.admin.parks ul.parks li.even {
+body.admin.parks ul.parks li.even,
+body.admin.users ul.users li.even {
   background-color: #EDF3FE;
 }
 
@@ -285,7 +289,8 @@ body.admin.parks form .form_item.location input.address {
 /* =amenities 
 */
 body.admin.amenities form.amenity,
-body.admin.parks form.park {
+body.admin.parks form.park,
+body.admin.users form.user {
   background-color: #F9F4D1;
   border: 1px solid #E3DDB1;
   margin-bottom: 1.5em;
@@ -293,14 +298,16 @@ body.admin.parks form.park {
 }
 
 body.admin.amenities form.amenity h4,
-body.admin.parks form.park h4 {
+body.admin.parks form.park h4,
+body.admin.users form.user h4 {
   font-size: 1.25em;
   font-weight: bold;
   margin: 0;
 }
 
 body.admin.amenities form.amenity .notes,
-body.admin.parks form.park .notes {
+body.admin.parks form.park .notes,
+body.admin.users form.user .notes {
   color:#666666;
   margin:0 0 0.5em;
   font-size: 0.9em;
@@ -308,7 +315,8 @@ body.admin.parks form.park .notes {
 }
 
 body.admin.amenities form.amenity fieldset,
-body.admin.parks form.park fieldset {
+body.admin.parks form.park fieldset,
+body.admin.users form.user fieldset {
   background-color:#E3DDB1;
   margin-bottom:0.5em;
   overflow:hidden;

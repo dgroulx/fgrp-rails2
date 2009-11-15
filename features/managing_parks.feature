@@ -106,3 +106,16 @@ Feature: Managing parks
     Then I should see the park has the amenities:
       | Amenity | Description |
       | Slides | Slippery slide |
+
+  Scenario: Admin adding park resource links
+    Given I have signed in with "zach@zach.com/banana"
+    And a park exists with a name of "Parky"
+    When I go to the "Parky" park's edit page
+    And I fill in "Title" with "Google Huh"
+    And I fill in "Url" with "http://www.google.com"
+    And I press "Update"
+    Then I should see "Park was successfully updated."
+
+    When I go to the recently created park's page
+    Then I should see "Google Huh"
+

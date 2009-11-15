@@ -1,0 +1,11 @@
+<% section "admin users edit" %>
+
+<% form_for @user, :html => { :class => "user" } do |form| %>
+  <h4>Editing user</h4>
+  
+  <%= form.error_messages %>
+  
+  <p class="notes">Editing a user here will NOT email them. Be sure to contact them if you change their email for login or password.</p>
+  <%= render :partial => "users/form_fields", :locals => { :form => form } %>
+  <%= form.submit "Update User" %>
+<% end %>
