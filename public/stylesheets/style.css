@@ -393,10 +393,8 @@ body.parks.index ul.actions {
 }
 
 
-/* =explore
-*/
-
 body.explore .park_category h2 {
+  background-repeat: no-repeat;
   margin: 5px 0;
   text-indent: -9999px;
 }
