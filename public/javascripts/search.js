@@ -3,21 +3,25 @@
   array[80] = 1;
 
   jQuery(function($) {
+    if($("#map").length==0)
+    {
+      return;
+    }
     var searchFieldElement = $("#search-fields");
     var INFO_WINDOW_TEMPLATE = $('<div><h1 class="name"></h1><p class="address"></p><a class="link">More info</a></div>');
     
     var map = new GMap2(document.getElementById("map"));
     window.map = map;
-    map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
+    //map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
     
 		function preparePark() {
-      this.latlng = new GLatLng(this.point[0], this.point[1]);
+      this.latlng = new GLatLng(this.park.latitude, this.park.longitude);
       this.marker = new GMarker(this.latlng);
 
       var infoWindowData = {
-        name: this.name,
-        address: this.address,
-        link: {"@href": this.url }
+        name: this.park.name,
+        address: this.park.address,
+        link: {"@href": this.park.url }
       };
       
       GEvent.addListener(this.marker, "click", function() {
@@ -67,31 +71,28 @@
         appendTo(searchFieldElement);
     }
 
-    // Simulated json callback
-    function dataArrived(data) {
+    function processData(data) {
       $.each(data.parks, preparePark);
       
       var bounds = new GLatLngBounds();
       $.each(data.parks, function() {
         bounds.extend(this.latlng);
       });
+      
       map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds)); 
       displayParks(data.parks);
       populateAmenities(data);
     }
-   
-    // FAKE OUT A AJAX CALL
-    //dataArrived(getData);
 
 		// Get park data on page load
-		var getData = {parks: false, amenities:false};
+		//this area below needs rewriting.
+		var retrievedData = {parks: false, amenities:false};
 		$.getJSON('/amenities.json', function(amenities) {
-			getData.amenities = amenities;
-			dataArrived(getData);
+			retrievedData.amenities = amenities;
+			$.getJSON("/parks.json",function(parks){
+  			  retrievedData.parks = parks;
+  			  processData(retrievedData);
+  		});
 		});
-		$.getJSON("/parks.json",function(parks){
-			getData.parks = parks;
-			dataArrived(getData);
-		});
-	
+		
   });

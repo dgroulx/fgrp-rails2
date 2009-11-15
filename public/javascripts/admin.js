@@ -11,7 +11,13 @@ $(document).ready(function() {
     var adminMap = new GMap2($(pSelector)[0]);
     var address = $("body.parks.admin .address:first");
     var geoCoder = new GClientGeocoder();
-
+    
+    if(address.val().length==0)
+    {
+      //default value--certainly not the best way to do this.
+      address.val("Grand Rapids, MI");
+    }
+    
     geoCoder.getLatLng(address.val(),function(pLatLng){
       if(pLatLng===null)
       {
@@ -29,7 +35,7 @@ $(document).ready(function() {
   }
   
   $('body.parks.admin .update-address:first').click(function() {
-
+    var adminArea = $("body.parks.admin");
     var address =  adminArea.find(".address:first");
     var geoCoder = new GClientGeocoder();
     geoCoder.getLatLng(address.val(),function(pLatLng){
