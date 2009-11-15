@@ -14,6 +14,8 @@ Feature: Managing parks
     When I go to the new park page
     And I fill in "Name" with "Zach's awesome park"
     And I fill in "Address" with "1234 Mulberry Ln"
+    And I fill in "Latitude" with "40.5"
+    And I fill in "Longitude" with "-80.5"
     And I fill in "Vimeo Embed" with "<object>My great video</object>"    
     And I fill in "Park Size" with "50x50"
     And I fill in "History" with "this is a new park"
@@ -27,9 +29,9 @@ Feature: Managing parks
     When I go to the recently created park's page
     Then I should see the park:
       | .name | Zach's awesome park |
-      | .contact_info | Zachary |
+      | .contactinfo | Zachary |
       | .history | this is a new park |
-      | .park_size    | 50x50 |
+      | .parksize    | 50x50 |
       | .address    | 1234 Mulberry Ln |
       | .vimeo_embed    | My great video |
     
@@ -46,6 +48,8 @@ Feature: Managing parks
     And I fill in "History" with "this is a new park"
     And I fill in "Contact info" with "Zachary"
     And I fill in "Flickr Pool Id" with "abc123"
+    And I fill in "Latitude" with "40.5"
+    And I fill in "Longitude" with "-80.5"
     And I press "Update"
     Then I should see "Park was successfully updated."
     And I should be on the parks index page
@@ -54,9 +58,9 @@ Feature: Managing parks
     When I go to the "Zach's awesome park" park's page
     Then I should see the park:
       | .name | Zach's awesome park |
-      | .contact_info | Zachary |
+      | .contactinfo | Zachary |
       | .history | this is a new park |
-      | .park_size    | 50x50 |
+      | .parksize    | 50x50 |
       | .address    | 1234 Mulberry Ln |
       | .vimeo_embed    | My great video |
   
@@ -72,12 +76,13 @@ Feature: Managing parks
     
   Scenario: Admin adding park amenities
     Given I have signed in with "zach@zach.com/banana"
+    And a park exists with a name of "Parky"
     And an amenity exists with a name of "Benches"
-    And I am on the new park page
-    When I select "Benches" from "Amenity"
+    When I go to the "Parky" park's edit page
+    And I select "Benches" from "Amenity"
     And I fill in "Amenity description" with "Brown happy benches"
-    And I press "Create"
-    Then I should see "Park was successfully created."
+    And I press "Update"
+    Then I should see "Park was successfully updated."
     
     When I go to the recently created park's page
     Then I should see the park has the amenities:
