@@ -1,4 +1,7 @@
+(function() {
+
   var GRAND_RAPIDS = [42.935, -85.65];
+  var DEFAULT_ZOOM = 10;
   var array = [];
   array[80] = 1;
 
@@ -90,8 +93,10 @@
       if (retrievedData.parks.length > 0) {
         processData(retrievedData);
       } else {
-        map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
+        map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), DEFAULT_ZOOM);
       }
     });
     
   });
+
+})();

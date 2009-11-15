@@ -27,7 +27,6 @@ $(document).ready(function() {
     var api_method = "flickr.groups.pools.getPhotos&group_id=" + group_id;
 
     var callback = function(data) {
-      console.log(data);
       if (data.stat == "ok") {
         var data = $.map(data.photos.photo, function(photo) {
           return { 
@@ -42,5 +41,15 @@ $(document).ready(function() {
     }
 
     $.getJSON("http://www.flickr.com/services/rest/?jsoncallback=?&format=json&per_page=10&api_key=" + key + "&method="+ api_method, callback);
+  });
+  
+  
+  $(".simple_map[data-latitude][data-longitude]").each(function() {
+    var el = $(this);
+    
+    var map = new GMap2(this);
+    var parkLatLng = new GLatLng(el.attr("data-latitude"), el.attr('data-longitude'));
+    map.setCenter(parkLatLng, el.attr("data-zoom") || 14);
+    map.addOverlay(new GMarker(parkLatLng))
   });
 });

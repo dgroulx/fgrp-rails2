@@ -275,6 +275,15 @@ body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
 
+body.parks.show .flickr-pool-slideshow {
+  position: relative;
+}
+
+body.parks.show .flickr-pool-slideshow, body.parks.show .flickr-pool-slideshow li {
+  width: 300px;
+  height: 300px;
+}
+
 body.parks.show .flickr-pool-slideshow ul {
   list-style: none;
   padding: 0;
@@ -284,12 +293,16 @@ body.parks.show .flickr-pool-slideshow li {
   margin: 0;
   padding: 0;
   width: 300px;
-  height: 200px;
+  height: 300px;
   overflow: hidden;
 }
 
 body.parks.show .flickr-pool-slideshow li img {
   width: 100%;
   height: auto;
-  margin: auto auto;
+}
+
+body.parks.show .simple_map {
+  width: 200px;
+  height: 200px;
 }
