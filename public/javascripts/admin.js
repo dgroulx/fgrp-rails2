@@ -87,7 +87,6 @@ $(document).ready(function() {
 
     $('body.parks.admin .amenity a.delete').
       live('click', function() {
-        console.log(this);
         $(this).parents(".amenity").
           hide().
           find('input[name*=_delete]').
