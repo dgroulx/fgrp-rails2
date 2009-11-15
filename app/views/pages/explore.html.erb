@@ -7,7 +7,7 @@
 </div>
 
 <% Park::SECTIONS.each do |section_name| %>
-  <div class='grid_4 park_category'>
+  <div class='grid_4 park_category <%= section_name.downcase %>'>
     <h2><%= section_name %></h2>
     <ul class='<%= section_name %>'>
       <% @categorized_parks[section_name].each do |park| %>
@@ -17,3 +17,4 @@
     </ul>
   </div>
 <% end %>
+<div class='clear'></div>

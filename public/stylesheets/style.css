@@ -63,7 +63,7 @@ a{
 }
 #footer
 {
-	background-image:url(/images/grass-footer.png);
+	background-image:url(/images/grass-footer.jpg);
 	background-position:0 100%;
 	background-repeat:repeat-x;
 	height:200px;
@@ -225,19 +225,22 @@ body.explore .park_category h2 {
   margin: 5px 0;
 }
 
-body.explore .park_category ul{
-  background-color: #ccc;
-  padding: 5px;
-}
-
-body.explore .park_category span{
-  display: block;
-}
-
 body.explore .about_our_parks {
   margin: 40px 0;
 }
 
 body.explore .about_our_parks p {
   font-size: 1.5em;
+}
+
+body.explore .northeast ul { background-color: #7B8E22 }
+body.explore .northwest ul { background-color: #749C3C }
+body.explore .southeast ul { background-color: #ACC13B }
+body.explore .southwest ul { background-color: #BDBF33 }
+
+body.explore .park_category span{ display: block; }
+body.explore .park_category span a{ color: white; }
+body.explore .park_category ul{
+  color: #353535;
+  padding: 5px;
 }
