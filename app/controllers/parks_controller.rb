@@ -1,5 +1,7 @@
 class ParksController < ApplicationController
+  layout "admin", :except => ["show"]
   before_filter :authenticate, :except => ['show']
+  
   # GET /parks
   # GET /parks.xml
   def index
@@ -18,7 +20,7 @@ class ParksController < ApplicationController
     @park = Park.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :action => "show", :layout => "application" }
       format.xml  { render :xml => @park }
     end
   end

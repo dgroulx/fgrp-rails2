@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
+  layout 'admin'
   before_filter :authenticate, :set_current_park
+  
   def index
     @link = @park.links.new
     @links = @park.links
