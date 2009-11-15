@@ -69,7 +69,9 @@
         expand(options).
         click(filterParks).
         change(filterParks).
-        appendTo(searchFieldElement);
+        appendTo(searchFieldElement).
+        val("all").
+        change();
     }
     
     function getBounds(data)
@@ -87,7 +89,6 @@
       var bounds = getBounds(data);
       
       map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds)); 
-      displayParks(data.parks);
       populateAmenities(data);
     }
 
