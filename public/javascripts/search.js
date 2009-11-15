@@ -2,23 +2,6 @@
   var array = [];
   array[80] = 1;
 
-  var exampleData = {
-    amenities: ["Basketball Court", "Pool", "Benches", "Grill"],
-    parks: $.map(array,
-      function(_, i) { 
-        return {
-          name: "Park" + i,
-          address: i + " Park St., Grand Rapids MI",
-          url: "http://www.coolplace.com/",
-          
-          amenities: [Math.random() < 0.5, Math.random() < 0.5, Math.random() < 0.5, Math.random() < 0.5],
-          point: $.map(GRAND_RAPIDS, function(x) {return x + 0.5*(Math.random()-0.5)
-        })
-      }
-    })
-  }
-	
-
   jQuery(function($) {
     var searchFieldElement = $("#search-fields");
     var INFO_WINDOW_TEMPLATE = $('<div><h1 class="name"></h1><p class="address"></p><a class="link">More info</a></div>');
@@ -26,10 +9,8 @@
     var map = new GMap2(document.getElementById("map"));
     window.map = map;
     map.setCenter(new GLatLng(GRAND_RAPIDS[0], GRAND_RAPIDS[1]), 10);
-
-		
-
-    function preparePark() {
+    
+		function preparePark() {
       this.latlng = new GLatLng(this.point[0], this.point[1]);
       this.marker = new GMarker(this.latlng);
 
@@ -88,8 +69,6 @@
 
     // Simulated json callback
     function dataArrived(data) {
-			if(!data.parks && !data.amenities)
-				return;
       $.each(data.parks, preparePark);
       
       var bounds = new GLatLngBounds();
@@ -104,8 +83,8 @@
     // FAKE OUT A AJAX CALL
     //dataArrived(getData);
 
+		// Get park data on page load
 		var getData = {parks: false, amenities:false};
-		
 		$.getJSON('/amenities.json', function(amenities) {
 			getData.amenities = amenities;
 			dataArrived(getData);
@@ -114,22 +93,5 @@
 			getData.parks = parks;
 			dataArrived(getData);
 		});
-
-		$('body.parks.admin .update-address:first').click(function() {
-				var adminArea = $("body.parks.admin");
-				var address =  adminArea.find(".address:first");
-				var geoCoder = new GClientGeocoder();
-				geoCoder.getLatLng(address.val(),function(pLatLng){
-					if(pLatLng===null)
-						adminArea.find(".message").html("Address could not be found");
-					else
-					{
-						adminArea.find(".latitude").val(pLatLng.lat());
-						adminArea.find(".longitude").val(pLatLng.lng());
-						adminArea.find(".message").html("Address found successfully.");
-					}
-				}); 
-				return false;
-		});
-		
+	
   });

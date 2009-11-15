@@ -219,6 +219,11 @@ a{
 	height:350px;
 	margin:auto;
 }
+#admin-map
+{
+  width:200px;
+  height:150px;
+}
 #search-input-area
 {
 	width:500px;

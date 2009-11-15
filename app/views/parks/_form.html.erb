@@ -43,15 +43,20 @@
 		<%= f.label :address %>
 	</div>
 	<div class='right'>
-		<%= f.text_field :address, :class => 'textbox address' %>
-		<%= f.hidden_field :latitude, :class => 'textbox latitude' %>
-		<%= f.hidden_field :longitude, :class => 'textbox longitude' %>
-		<a class='update-address' href="#">Update</a>
-		<div class='message'></div>
+		<div class='left'>
+			<%= f.text_field :address	, :class => 'textbox address' %>
+			<%= f.hidden_field :latitude, :class => 'textbox latitude' %>
+			<%= f.hidden_field :longitude, :class => 'textbox longitude' %>
+			<a class='update-address' href="#">Update</a>
+			<div class='message'></div>
+		</div>
+		<div class='right'>
+			<div id="admin-map">
+			</div>
+		</div>
 	</div>
 	<div class='clear'></div>
-	<div id="park-map">
-	</div>
+
 
   <div class="amenities">
     <% park.park_amenities.build if park.park_amenities.empty? %>
