@@ -201,3 +201,15 @@ body.parks.show .simple_map {
   width: 200px;
   height: 200px;
 }
+
+body.explore .park_category {
+  background-color: #ccc;
+}
+
+body.explore .park_category span{
+  display: block;
+}
+
+body.explore .about_our_parks {
+  margin: 40px 0;
+}

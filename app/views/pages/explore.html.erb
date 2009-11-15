@@ -1,13 +1,18 @@
-<div id='map'></div>
+<% section "explore" %>
+<%= render :partial => 'shared/searchmap' %>
 
-<p>Grand Rapids is full of amazing parks and public spaces with a variety of recreational opportunities, natural beauty and public art. We encourage you to explore and enjoy these community assets.</p>
+<div class='about_our_parks'>
+  <h2>Our Parks</h2>
+  <p>Grand Rapids is full of amazing parks and public spaces with a variety of recreational opportunities, natural beauty and public art. We encourage you to explore and enjoy these community assets.</p>
+</div>
 
 <% Park::SECTIONS.each do |section_name| %>
-  <div class='section'>
+  <div class='grid_4 park_category'>
     <h2><%= section_name %></h2>
     <ul class='<%= section_name %>'>
       <% @categorized_parks[section_name].each do |park| %>
-        <%= link_to park.name, park %>
+        <span><%= link_to park.name, park %></span>
+        <%= park.address %>
       <% end %>
     </ul>
   </div>
