@@ -433,3 +433,8 @@ body.explore .park_category ul{
   color: #353535;
   padding: 5px;
 }
+
+body.explore .park_category li{
+  margin: 0 0 10px 0;
+  list-style: none;
+}

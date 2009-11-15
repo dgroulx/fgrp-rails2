@@ -14,6 +14,7 @@
     var INFO_WINDOW_TEMPLATE = $('<div><h1 class="name"></h1><p class="address"></p><a class="link">More info</a></div>');
     
     var map = new GMap2(document.getElementById("map"));
+    map.setUIToDefault();
     window.map = map;
     
     function preparePark() {

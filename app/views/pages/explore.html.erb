@@ -11,8 +11,10 @@
     <h2><%= section_name %></h2>
     <ul class='<%= section_name %>'>
       <% @categorized_parks[section_name].each do |park| %>
-        <span><%= link_to park.name, park %></span>
-        <%= park.address %>
+        <li>
+          <span><%= link_to park.name, park %></span>
+          <%= park.address %>
+        </li>
       <% end %>
     </ul>
   </div>
