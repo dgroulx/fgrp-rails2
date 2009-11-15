@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
   layout "admin", :except => ["show"]
-  before_filter :authenticate, :except => ['show']
+  before_filter :authenticate, :except => ['show', 'index']
+  before_filter :authenticate_unless_json, :only => ['index']
   
   # GET /parks
   # GET /parks.xml
@@ -87,5 +88,9 @@ class ParksController < ApplicationController
       format.html { redirect_to(parks_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def authenticate_unless_json
+    authenticate unless request.format.to_s == 'application/json'
   end
 end
