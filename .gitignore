@@ -17,4 +17,4 @@ examples/self_test/tmp
 .idea
 db/*.sqlite3
 config/database.yml
-
+db/schema.rb
