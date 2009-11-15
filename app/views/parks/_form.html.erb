@@ -1,75 +1,76 @@
 <% form_for(park) do |f| %>
   <%= f.error_messages %>
 
-	<div class='left'>
-    <%= f.label :name %>
+	<div class='section'>
+		<div class='grid_3'>
+	    <%= f.label :name %>
+		</div>
+		<div class='grid_13'>
+	    <%= f.text_field :name, :class => 'textbox name' %>
+		</div>
 	</div>
-	<div class='right'>
-    <%= f.text_field :name, :class => 'textbox' %>
-	</div>
-	<div class='clear'></div>
 	
-	<div class='left'>
-    <%= f.label :park_size %>
+	<div class='section'>
+		<div class='grid_3'>
+	    <%= f.label :park_size %>
+		</div>
+		<div class='grid_13'>
+	    <%= f.text_field :park_size, :class => 'textbox parksize' %>
+	    Enter the park size in acres
+		</div>
 	</div>
-	<div class='right'>
-    <%= f.text_field :park_size, :class => 'textbox' %>
-    Enter the park size in acres
-	</div>
-	<div class='clear'></div>
 	
-	<div class='left'>
-		<%= f.label :address %>
-	</div>
-	<div class='right'>
-		<div class='left'>
-			<%= f.text_field :address	, :class => 'textbox address' %>
+	<div class='section'>
+		<div class='grid_3'>
+			<%= f.label :address %>
+		</div>
+		<div class='grid_13'>
+		    <%= f.text_field :address	, :class => 'textbox address' %>
 			<%= f.hidden_field :latitude, :class => 'textbox latitude' %>
 			<%= f.hidden_field :longitude, :class => 'textbox longitude' %>
 			<a class='update-address' href="#">Update</a>
 			<div class='message'></div>
-		</div>
-		<div class='right'>
-			<div id="admin-map">
+		    <div id="admin-map">
 			</div>
 		</div>
 	</div>
-	<div class='clear'></div>
 	
-	<div class='left'>
-    <%= f.label :history %>
+	<div class='section'>
+		<div class='grid_3'>
+	    <%= f.label :history %>
+		</div>
+		<div class='grid_13'>
+		  <%= f.text_area :history, :class => 'tinymce history' %>
+		</div>
 	</div>
-	<div class='right'>
-	  <%= f.text_area :history, :class => 'tinymce' %>
-	</div>
-	<div class='clear'></div>
 	
-	<div class='left'>
-    <%= f.label :contact_info %>
-	</div>
-	<div class='right'>
-    <%= f.text_area :contact_info, :class => 'tinymce' %>
-	</div>
-	<div class='clear'></div>
-
-	<div class='left'>
-		<%= f.label :vimeo_embed %>
-	</div>
-	<div class='right'>
-	  <%= f.text_area :vimeo_embed, :class => 'textbox' %>
-	  Copy and the paste the embed tag for your video
+	<div class='section'>
+		<div class='grid_3'>
+	    <%= f.label :contact_info %>
+		</div>
+		<div class='grid_13'>
+	    <%= f.text_area :contact_info, :class => 'tinymce contactinfo' %>
+		</div>
 	</div>
 
-  <div class='left'>
-    <%= f.label :flickr_pool_id, "Flickr pool id" %>
+	<div class='section'>
+		<div class='grid_3'>
+			<%= f.label :vimeo_embed %>
+		</div>
+		<div class='grid_13'>
+    		  <%= f.text_area :vimeo_embed, :class => 'textbox vimeoembed' %>
+		  Copy and the paste the embed tag for your video
+		</div>
+	</div>
+  <div class='section'>
+      <div class='grid_3'>
+          <%= f.label :flickr_pool_id, "Flickr pool id" %>
+      </div>
+      <div class='grid_13'>
+          <%= f.text_field :flickr_pool_id, :class => 'textbox' %>
+      </div>
   </div>
-  <div class='right'>
-    <%= f.text_field :flickr_pool_id, :class => 'textbox' %>
-  </div>
-
-
-
-  <div class="amenities">
+  <div class='section'>
     <% park.park_amenities.build if park.park_amenities.empty? %>
     <% f.fields_for_with_template :park_amenities do |a| %>
       <div class="amenity">
@@ -91,6 +92,9 @@
         <div class='clear'></div>
     </div>
     <% end %>
+  </div>
+  <div class="amenities">
+    
 
   </div>
   <%= link_to "Add amenity", "#", :class => 'add_amenity' %>

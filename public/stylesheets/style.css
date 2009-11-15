@@ -81,66 +81,11 @@ a{
 }
 
 /** Sections **/
-.section .left,
-.section .right
+.section
 {
-	margin:0 10px 10px 10px;
-	float:left;
+  clear:both;
 }
-.section .left
-{
-	width:280px;
-}
-.section .right
-{
-	width:640px;
-}
-#park-name
-{
-	width:496px;
-}
-#park-description
-{
-	width:500px;
-	height:100px;
-}
-#park-size
-{
-	width:50px;
-}
-#contact-information
-{
-	width:295px;
-	height:75px;
-}
-#park-address1
-{
-	width:295px;
-	margin:0 10px 10px 0;
-}
-#amenities_input
-{
-	width:500px;
-}
-#amenities-list,
-#amenities-list li
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-#amenities-list li
-{
-	margin:0 0 5px 0;
-}
-#amenities-list li a
-{
-	margin:0 10px 0 0;
-}
-#park-photoset-id
-{
-	width:295px;
-}
+
 .photoset-id-highlight
 {
 	color:#3399FF; /* light blue */
@@ -151,22 +96,6 @@ a{
 	width:850px;
 	height:400px;
 	z-index:0;
-}
-/** Update Button **/
-#update-button
-{
-	position:absolute;
-	top:50%;
-	right:-10px;
-	background-color:#FF9933;
-	width:100px;
-	height:30px;
-	text-align:center;
-}
-#update-button a
-{
-	color:#fff;
-	text-decoration:none;
 }
 /** Search Window **/
 #search-window
@@ -187,8 +116,8 @@ a{
 }
 #admin-map
 {
-  width:200px;
-  height:150px;
+  width:669px;
+  height:250px;
 }
 #search-input-area
 {
