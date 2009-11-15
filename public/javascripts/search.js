@@ -9,7 +9,7 @@
       return;
     }
     var searchFieldElement = $("#search-fields");
-    var INFO_WINDOW_TEMPLATE = $('<div><h1 class="name"></h1><p class="address"></p><a class="link">More info</a></div>');
+    var INFO_WINDOW_TEMPLATE = $('<div><h1><a class="name"></a></h1><p class="address"></p></div>');
     
     var map = new GMap2(document.getElementById("map"));
     map.setUIToDefault();
@@ -20,9 +20,8 @@
       this.marker = new GMarker(this.latlng);
 
       var infoWindowData = {
-        name: this.name,
-        address: this.address,
-        link: {"@href": this.url }
+        name: { innerHTML: this.name, "@href": this.url },
+        address: this.address
       };
       
       GEvent.addListener(this.marker, "click", function() {
