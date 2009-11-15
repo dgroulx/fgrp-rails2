@@ -361,8 +361,7 @@ body.parks.show .search-window
 }
 body.parks.show .search-window.show-map
 {
-  height:auto;
-  overflow:auto;
+
 }
 
 body.parks.show .flickr-pool-slideshow {

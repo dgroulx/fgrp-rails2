@@ -115,11 +115,22 @@
       searchWindow.toggleClass("show-map");
       
       if(searchWindow.hasClass("show-map"))
-        link.html(hideText);          
-      else
+      {
+        link.html(hideText);
+        /*height:auto;
+        overflow:auto;*/
+        searchWindow.animate({
+          height:"420px",
+          overflow:"auto"
+        });
+      }
+      else{
         link.html(showText);
-      
-      
+        searchWindow.animate({
+          height:"0px",
+          overflow:"hidden"
+        });
+      }
       return false;
     });
     
