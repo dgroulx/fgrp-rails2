@@ -62,7 +62,7 @@ class ParksController < ApplicationController
 
     respond_to do |format|
       if @park.update_attributes(params[:park])
-        flash[:notice] = 'Park was successfully updated.'
+        flash[:success] = 'Park was successfully updated.'
         format.html { redirect_to(parks_path) }
         format.xml  { head :ok }
       else

@@ -20,3 +20,26 @@ Feature: Managing links
     Then I should see "Link was successfully created."
     And I should be on the links page for the "Free parking" park
     And I should see "Unrelated, but funny"
+    
+  Scenario: Admin user deleting a link
+    Given I have signed in with "zach@zach.com/bananapanic"
+    And a park exists with a name of "Free parking"
+    And a link exists for the "Free parking" park called "Pineapples"
+    When I go to the links page for the "Free parking" park
+    And I follow "Destroy" for the "Pineapples" link
+    Then I should see "Link was successfully destroyed."
+    And I should be on the links page for the "Free parking" park
+    And I should not see "Pineapples"
+    
+  Scenario: Admin user editing a link
+    Given I have signed in with "zach@zach.com/bananapanic"
+    And a park exists with a name of "Free parking"
+    And a link exists for the "Free parking" park called "Pineapples"
+    When I go to the links page for the "Free parking" park
+    And I follow "Edit" for the "Pineapples" link
+    And I fill in "Title" with "YouTube"
+    And I press "Update"
+    Then I should see "Link was successfully updated."
+    And I should be on the links page for the "Free parking" park
+    And I should see "YouTube"
+    And I should not see "Pineapples"

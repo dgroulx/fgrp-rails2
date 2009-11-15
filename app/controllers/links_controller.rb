@@ -19,6 +19,33 @@ class LinksController < ApplicationController
   end
 
   def edit
+    @link = @park.links.find(params[:id])
+  end
+
+  def update
+    @link = @park.links.find(params[:id])
+
+    respond_to do |format|
+      if @link.update_attributes(params[:link])
+        flash[:success] = 'Link was successfully updated.'
+        format.html { redirect_to(park_links_path(@park)) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => 'edit' }
+        format.xml  { render :xml => @link.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @link = @park.links.find(params[:id])
+    @link.destroy
+
+    flash[:success] = 'Link was successfully destroyed.'
+
+    respond_to do |format|
+      format.html { redirect_to park_links_path(@park) }
+    end
   end
   
   def set_current_park
