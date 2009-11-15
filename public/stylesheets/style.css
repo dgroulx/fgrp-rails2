@@ -222,7 +222,6 @@ body.sessions.new form.session .form_item input {
 body.sessions.new form.session .buttons input {
   font-size: 1.25em;
 }
-
 /* =amenities 
 */
 body.admin.amenities form.amenity {
@@ -272,6 +271,12 @@ body.admin.amenities ul.amenities li .actions {
 
 /* =parks
 */
+body.parks.show .park
+{
+  background-image:url(/images/park-profile-bg.png);
+  background-repeat:repeat-y;
+  
+}
 body.parks.show .search-toolbar
 {
   height:20px;
@@ -296,12 +301,11 @@ body.parks.show .search-window
 body.parks.show .flickr-pool-slideshow {
   position: relative;
 }
-
 body.parks.show .flickr-pool-slideshow, body.parks.show .flickr-pool-slideshow li {
   width: 300px;
-  height: 300px;
+  height: 225px;
+  margin:0 0 10px 0 ;
 }
-
 body.parks.show .flickr-pool-slideshow ul {
   list-style: none;
   padding: 0;
@@ -311,7 +315,7 @@ body.parks.show .flickr-pool-slideshow li {
   margin: 0;
   padding: 0;
   width: 300px;
-  height: 300px;
+  height: 225px;
   overflow: hidden;
 }
 
@@ -319,10 +323,14 @@ body.parks.show .flickr-pool-slideshow li img {
   width: 100%;
   height: auto;
 }
-
 body.parks.show .simple_map {
-  width: 200px;
+  width: 300px;
   height: 200px;
+  margin: 0 0 10px 0;
+}
+body.parks.show .contactinfo
+{
+  padding:10px 0 0 10px;
 }
 
 body.explore .park_category h2 {

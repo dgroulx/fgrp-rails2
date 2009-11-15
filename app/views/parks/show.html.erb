@@ -6,7 +6,7 @@
 <%= render :partial=>"shared/searchmap"%>
 </div>
 <div class='park'>
-  <div class='basic section'>
+  <div>
     <div class='grid_6 alpha'>
       <div class="flickr-pool-slideshow" data-groupid="<%= @park.flickr_pool_id %>">
       </div>
@@ -52,7 +52,6 @@
       </ul>
 
       <p class='vimeo_embed'>
-        <b>Vimeo Embed</b>
         <%= @park.vimeo_embed %>
       </p>
       
