@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :parks, :has_many => 'links'
 
-  map.root :controller => 'parks', :action => 'index'
+  map.root :controller => 'pages', :action => 'explore'
 
   map.resource :session, :controller => 'sessions'
 end

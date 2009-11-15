@@ -1,0 +1,14 @@
+<div id='map'></div>
+
+<p>Grand Rapids is full of amazing parks and public spaces with a variety of recreational opportunities, natural beauty and public art. We encourage you to explore and enjoy these community assets.</p>
+
+<% Park::SECTIONS.each do |section_name| %>
+  <div class='section'>
+    <h2><%= section_name %></h2>
+    <ul class='<%= section_name %>'>
+      <% @categorized_parks[section_name].each do |park| %>
+        <%= link_to park.name, park %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

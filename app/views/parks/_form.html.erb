@@ -9,7 +9,7 @@
 	    <%= f.text_field :name, :class => 'textbox name' %>
 		</div>
 	</div>
-	
+
 	<div class='section'>
 		<div class='grid_3'>
 	    <%= f.label :park_size %>
@@ -19,6 +19,16 @@
 	    Enter the park size in acres
 		</div>
 	</div>
+	
+  <div class='section'>
+	  <div class='grid_3'>
+      <%= f.label :section, "City section" %>
+	  </div>
+	  <div class='grid_13'>
+	    <%= f.select :section, Park::SECTIONS %>
+	  </div>
+	  <div class='clear'></div>
+  </div>
 	
 	<div class='section'>
 		<div class='grid_3'>
