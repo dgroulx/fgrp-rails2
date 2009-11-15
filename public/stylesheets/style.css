@@ -202,8 +202,13 @@ body.parks.show .simple_map {
   height: 200px;
 }
 
-body.explore .park_category {
+body.explore .park_category h2 {
+  margin: 5px 0;
+}
+
+body.explore .park_category ul{
   background-color: #ccc;
+  padding: 5px;
 }
 
 body.explore .park_category span{
@@ -212,4 +217,8 @@ body.explore .park_category span{
 
 body.explore .about_our_parks {
   margin: 40px 0;
+}
+
+body.explore .about_our_parks p {
+  font-size: 1.5em;
 }
