@@ -43,24 +43,13 @@
 		<%= f.label :address %>
 	</div>
 	<div class='right'>
-	  <%= f.text_field :address, :class => 'textbox' %>
-		<a id="park-address-update" href="javascript:void();">Update</a>
+		<%= f.text_field :address, :class => 'textbox address' %>
+		<%= f.hidden_field :latitude, :class => 'textbox latitude' %>
+		<%= f.hidden_field :longitude, :class => 'textbox longitude' %>
+		<a class='update-address' href="#">Update</a>
+		<div class='message'></div>
 	</div>
 	<div class='clear'></div>
-	<div class='left'>
-		<%= f.label :latitude %>
-	</div>
-	<div class='right'>
-    <%= f.text_field :latitude, :class => 'textbox' %>
-		<a id="park-address-update" href="javascript:void();">Update</a>
-	</div>
-	<div class='left'>
-		<%= f.label :longitude %>
-	</div>
-	<div class='right'>
-    <%= f.text_field :longitude, :class => 'textbox' %>
-		<a id="park-address-update" href="javascript:void();">Update</a>
-	</div>
 	<div id="park-map">
 	</div>
 

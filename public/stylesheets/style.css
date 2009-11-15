@@ -19,15 +19,55 @@ a{
 /** Main Page Elements **/
 #header
 {
-	/* position:fixed; */
-	height:75px;
+	height:125px;
 	background-color:#fff;
 	z-index:100;
 	width:100%;
 }
+.top-nav,
+.top-nav li
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.top-nav
+{
+	float:right;
+	margin:30px 40px 0 0;
+}
+.top-nav li
+{
+	float:left;
+	margin: 0 13px 0 13px;
+	padding:10px 0 0 0;
+}
+.top-nav li.last
+{
+	margin:0 0 0 13px;
+}
+.top-nav li a,
+.top-nav li a:active
+{
+	font-size:16px;
+	color:#666666;
+	text-decoration:none;	
+}
+.top-nav li a:hover
+{
+	color:#aaa;
+}
+.top-nav li.active a
+{
+	color:#76B143;
+}
+.top-nav li.active
+{
+	border-top:1px solid #76b143;
+}
 #footer
 {
-	background-image:url(../images/grass-footer.jpg);
+	background-image:url(/images/grass-footer.png);
 	background-position:0 100%;
 	background-repeat:repeat-x;
 	height:200px;
@@ -140,10 +180,10 @@ a{
 	color:#3399FF; /* light blue */
 }
 /** Map Area **/
-#park-map
+#map
 {
-	width:300px;
-	height:250px;
+	width:850px;
+	height:400px;
 	z-index:0;
 }
 /** Update Button **/

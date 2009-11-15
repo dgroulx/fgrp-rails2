@@ -3,27 +3,38 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Parks: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'reset' %>
-  <%= stylesheet_link_tag 'text' %>
-  <%= stylesheet_link_tag '960' %>
-  <%= stylesheet_link_tag 'style' %>
-
-  <%= javascript_include_tag :defaults, :combine => "all-application" %>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  	<title>Parks: <%= controller.action_name %></title>
+	<%= stylesheet_link_tag 'scaffold' %>
+	<%= stylesheet_link_tag 'reset' %>
+	<%= stylesheet_link_tag 'text' %>
+	<%= stylesheet_link_tag 'grid850' %>
+	<%= stylesheet_link_tag 'style' %>
 </head>
 <body class="<%= yield(:section) %>">
 
 <div class='container_16'>
 	<div id="header">
-		<h1>Friends of Grand Rapids Parks</h1>
+		<%= render :partial=>"shared/header" %>
 	</div>
+
 	<div id="main">
     <%= flash_messages %>
 
     <%= yield %>
-  </div>
+  	</div>
+	<div id="footer"></div>
 </div>
+
+<%= javascript_include_tag "jquery.js" %>
+<%= javascript_include_tag "jquery.expand.js" %>
+<%= javascript_include_tag "application.js" %>
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAwIRxdoIRFaF6xG-_lFH6RBTh3EVmyytS48scZT_LeMRImnnkbhRenhxIzmz2fKQhrR6vyYN7CRJvtA"></script>
+<script type="text/javascript">
+	google.load("maps", "2");
+</script>
+<%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
+<%= javascript_include_tag "tiny_mce/jquery.tinymce.js" %>
+<%= javascript_include_tag "search.js" %>
 </body>
 </html>

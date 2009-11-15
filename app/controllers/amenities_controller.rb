@@ -19,6 +19,11 @@ class AmenitiesController < ApplicationController
 
   def index
     @amenities = Amenity.all(:order => "name ASC")
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json  { render :json => @amenities }
+    end
   end
 
   def edit
