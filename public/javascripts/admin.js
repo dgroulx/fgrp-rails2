@@ -1,74 +1,61 @@
 
 $(document).ready(function() {	
-  (function() {
-    var adminArea = $("body.parks.admin"); //refactor this out
-    var address = adminArea.find(".address:first");
-  
-    function logMapMessage(pMessage)
-    {
-      adminArea.find(".message:first").html(pMessage);
-    }
-    function updateLatLngInputs(pGLatLng)
-    {
-      adminArea.find(".latitude:first").val(pGLatLng.lat());
-      adminArea.find(".longitude:first").val(pGLatLng.lng());
-    }
-    function updateMap(pSelector,pAddress,pPlotmarker,pUpateLatLng)
-    {
-      var adminMap = new GMap2($(pSelector)[0]);
-      var geoCoder = new GClientGeocoder();
+
+  (function(element, address) {
+    var map = new GMap2(element.find(".admin-map")[0]);
+    var geoCoder = new GClientGeocoder();
     
-      if(pAddress.length==0)
-      {
-        pAddress = "Grand Rapids,MI";
-      }
-    
-      geoCoder.getLatLng(pAddress,function(pLatLng){
-        if(pLatLng===null)
-        {
-          logMapMessage("Address not found.");
-          return;
-        }
-        else
-        {
-          adminMap.setCenter(pLatLng, 10);
-          adminMap.clearOverlays();
-          if(pUpateLatLng)
-            updateLatLngInputs(pLatLng);
-          if(pPlotmarker)
-          {
-            var marker = new GMarker(pLatLng);
-            adminMap.addOverlay(marker);
-          }
-        }
-      });
+    function centerMap(latLng) {
+      map.setCenter(latLng, 10);
     }
-  
-    $('body.parks.admin .update-address:first').click(function() {
-      var geoCoder = new GClientGeocoder();
-      geoCoder.getLatLng(address.val(),function(pLatLng){
-        if(pLatLng===null)
-          logMapMessage("Address could not be found");
-        else
-        {
-          logMapMessage("Address found successfully.");
-          updateMap("#admin-map",address.val(),true,true);
+    
+    function updateLatLng(latlng) {
+      element.find(".latitude").val(latlng.lat());
+      element.find(".longitude").val(latlng.lng());
+      
+      map.clearOverlays();
+      centerMap(latlng);
+      map.addOverlay(new GMarker(latlng));
+    }
+    
+    function updateLatLngFromForm() {
+      var lat = element.find(".latitude").val();
+      var lng = element.find(".longitude").val();
+      var latlng = new GLatLng(lat, lng);
+      element.find(".message").html("");
+      updateLatLng(latlng);
+    }
+    
+    
+    function geolocate(addr, callback) {
+      geoCoder.getLatLng(addr, function(pLatLng){
+        if(pLatLng === null){
+          element.find(".message").html("Address could not be found");
+        } else {
+          element.find(".message").html("Address found successfully.");
+          callback(pLatLng)
         }
       }); 
-      return false;
-    });
-  
-  
-    if($("#admin-map").length>0)
-    {
-      if(adminArea.find(".latitude").val().length>0 && adminArea.find(".longitude").val().length>0)
-        updateMap("#admin-map",address.val(),true,true);
-      else
-        updateMap("#admin-map","Grand Rapids, MI",false,false);
     }
-  })();
     
-
+    function updateLatLngFromAddress() {
+      geolocate(address.val(), updateLatLng)
+    }
+    
+    element.
+      find(".update-address").
+      click(updateLatLngFromAddress)
+    
+    element.
+      find(".update-map").
+      click(updateLatLngFromForm)
+    
+    if (/^\s*$/.test(element.find(".latitude").val()) || /^\s*$/.test(element.find(".longitude").val()))
+      geoCoder.getLatLng("Grand Rapids, MI", centerMap);
+    else
+      updateLatLngFromForm();
+    
+  })($("body.parks.admin .location.section"), $("body.parks.admin input.address"));
 
 
   // amenities on teh parks admin

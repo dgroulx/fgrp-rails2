@@ -189,7 +189,7 @@ form div.errorExplanation{
 	height:350px;
 	margin:auto;
 }
-#admin-map
+body.parks.admin .admin-map
 {
   width:669px;
   height:250px;

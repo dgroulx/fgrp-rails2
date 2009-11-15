@@ -1,77 +1,90 @@
 <% form_for(park) do |f| %>
   <%= f.error_messages %>
 
-	<div class='section'>
-		<div class='grid_3'>
-	    <%= f.label :name %>
-		</div>
-		<div class='grid_13'>
-	    <%= f.text_field :name, :class => 'textbox name' %>
-		</div>
-	</div>
-
-	<div class='section'>
-		<div class='grid_3'>
-	    <%= f.label :park_size %>
-		</div>
-		<div class='grid_13'>
-	    <%= f.text_field :park_size, :class => 'textbox parksize' %>
-	    Enter the park size in acres
-		</div>
-	</div>
-	
   <div class='section'>
-	  <div class='grid_3'>
-      <%= f.label :section, "City section" %>
-	  </div>
-	  <div class='grid_13'>
-	    <%= f.select :section, Park::SECTIONS %>
-	  </div>
-	  <div class='clear'></div>
+    <div class='grid_3'>
+      <%= f.label :name %>
+    </div>
+    <div class='grid_13'>
+      <%= f.text_field :name, :class => 'textbox name' %>
+    </div>
   </div>
-	
-	<div class='section'>
-		<div class='grid_3'>
-			<%= f.label :address %>
-		</div>
-		<div class='grid_13'>
-		    <%= f.text_field :address	, :class => 'textbox address' %>
-			<%= f.hidden_field :latitude, :class => 'textbox latitude' %>
-			<%= f.hidden_field :longitude, :class => 'textbox longitude' %>
-			<a class='update-address' href="#">Update</a>
-			<div class='message'></div>
-		    <div id="admin-map">
-			</div>
-		</div>
-	</div>
-	
-	<div class='section'>
-		<div class='grid_3'>
-	    <%= f.label :history %>
-		</div>
-		<div class='grid_13'>
-		  <%= f.text_area :history, :class => 'tinymce history' %>
-		</div>
-	</div>
-	
-	<div class='section'>
-		<div class='grid_3'>
-	    <%= f.label :contact_info %>
-		</div>
-		<div class='grid_13'>
-	    <%= f.text_area :contact_info, :class => 'tinymce contactinfo' %>
-		</div>
-	</div>
 
-	<div class='section'>
-		<div class='grid_3'>
-			<%= f.label :vimeo_embed %>
-		</div>
-		<div class='grid_13'>
-    		  <%= f.text_area :vimeo_embed, :class => 'textbox vimeoembed' %>
-		  Copy and the paste the embed tag for your video
-		</div>
-	</div>
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :park_size %>
+    </div>
+    <div class='grid_13'>
+      <%= f.text_field :park_size, :class => 'textbox parksize' %>
+      Enter the park size in acres
+    </div>
+  </div>
+  
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :section, "City section" %>
+    </div>
+    <div class='grid_13'>
+      <%= f.select :section, Park::SECTIONS %>
+    </div>
+    <div class='clear'></div>
+  </div>
+  
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :address %>
+    </div>
+    <div class='grid_13'>
+      <%= f.text_field :address  , :class => 'textbox address' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class='section location'>
+    <div class='grid_3'>
+      <label>Location</label>
+    </div>
+    <div class='grid_13'>
+      <a class='update-address' href="#">Get from address</a>
+      
+      (<%= f.label :latitude, "Latitude:" %>
+      <%= f.text_field :latitude, :class => 'textbox latitude', :size => 8 %>
+      <%= f.label :latitude, "Longitude:" %>
+      <%= f.text_field :longitude, :class => 'textbox longitude', :size => 8 %>
+      <a class='update-map' href="#">Update map</a>)
+      
+      <div class='message'></div>
+      <div class="admin-map"></div>
+    </div>
+  </div>
+  
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :history %>
+    </div>
+    <div class='grid_13'>
+      <%= f.text_area :history, :class => 'tinymce history' %>
+    </div>
+  </div>
+  
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :contact_info %>
+    </div>
+    <div class='grid_13'>
+      <%= f.text_area :contact_info, :class => 'tinymce contactinfo' %>
+    </div>
+  </div>
+
+  <div class='section'>
+    <div class='grid_3'>
+      <%= f.label :vimeo_embed %>
+    </div>
+    <div class='grid_13'>
+          <%= f.text_area :vimeo_embed, :class => 'textbox vimeoembed' %>
+      Copy and the paste the embed tag for your video
+    </div>
+  </div>
   <div class='section'>
       <div class='grid_3'>
           <%= f.label :flickr_pool_id, "Flickr pool id" %>
