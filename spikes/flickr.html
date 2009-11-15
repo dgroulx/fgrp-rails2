@@ -25,7 +25,7 @@
     </style>
 
     <script>
-          //http://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=608ab68aaad0edf19d9628477500d3c2&group_id=1083938%40N25&api_sig=72bb17b93e865aa4d6238491c626ecf4
+
       var key = "40343c1f16327beb5c9adfd73caec372";
       var group_id = "1083938@N25";
       var api_method = "flickr.groups.pools.getPhotos&group_id=" + group_id;
@@ -34,7 +34,7 @@
         var callback = function(data) {
           var data = $.map(data.photos.photo, function(photo) {
             return { 
-              '$img': { "@src": "http://farm" + photo.farm + ".static.flickr.com/" + photo.server +"/" + photo.id + "_" + photo.secret + ".jpg" }
+              '$img': { "@src": "http://farm" + photo.farm + ".static.flickr.com/" + photo.server +"/" + photo.id + "_" + photo.secret + "_m.jpg" }
             };
           });
 
@@ -43,7 +43,7 @@
             find("ul").innerfade();
         }
 
-        $.getJSON("http://www.flickr.com/services/rest/?jsoncallback=?&format=json&api_key=" + key + "&method="+ api_method, callback);        
+        $.getJSON("http://www.flickr.com/services/rest/?jsoncallback=?&format=json&per_page=10&api_key=" + key + "&method="+ api_method, callback);        
       });
     </script>
   </head>
