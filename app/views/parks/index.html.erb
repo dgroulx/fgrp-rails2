@@ -17,7 +17,6 @@
   <% @parks.each do |park| %>
     <li class="park <%= cycle('odd', 'even') %>">
       <div class="actions">
-        <%= link_to 'Links', park_links_path(park) %> |
         <%= link_to "Edit", edit_park_path(park) %> |
         <%= link_to "Delete", park_path(park), :method => "delete", :confirm => "Are you sure you want to delete #{park.name}?" %>
       </div>

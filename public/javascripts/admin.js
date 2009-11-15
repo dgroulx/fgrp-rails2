@@ -60,7 +60,7 @@ $(document).ready(function() {
   })($("body.parks.admin .location"), $("body.parks.admin input.address"));
 
 
-  // amenities on teh parks admin
+  // amenities on the parks admin
   (function() {
     var amenity_template = $('body.parks.admin .amenities .template').remove().html();
     var amenity_counter = $('body.parks.admin .amenities .amenity').length;
@@ -77,6 +77,29 @@ $(document).ready(function() {
     $('body.parks.admin .amenity a.delete').
       live('click', function() {
         $(this).parents(".amenity").
+          hide().
+          find('input[name*=_delete]').
+            attr('value', 1);
+        return false;})
+  })();
+
+  // resource links on the parks admin
+  (function() {
+    var amenity_template = $('body.parks.admin .resources .links .template').remove().html();
+    var amenity_counter = $('body.parks.admin .resources .links .link').length;
+
+    $('body.parks.admin .add_resource_link').each(function() {
+      $(this).click(function() {
+        var this_template_content = amenity_template.replace(/NEW_RECORD/g, amenity_counter);
+        $('body.parks.admin .resources .links').append(this_template_content);
+        amenity_counter++;
+        return false;
+      });
+    });
+
+    $('body.parks.admin .resources .link a.delete').
+      live('click', function() {
+        $(this).parents(".link").
           hide().
           find('input[name*=_delete]').
             attr('value', 1);

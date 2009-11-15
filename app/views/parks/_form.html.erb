@@ -101,9 +101,25 @@
     <%= link_to "Add another amenity", "#", :class => 'add_amenity' %>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="resources">
     <h4>Resource Links</h4>
     <p class="notes">...</p>
+    
+    <div class="links">
+      <% park.links.build if park.links.empty? %>
+      <% f.fields_for_with_template :links do |a| %>
+        <div class="link">
+          <%= a.hidden_field :_delete, :value => 0 %>
+          <%= a.label :title %>
+          <%= a.text_field :title %>
+          <%= a.label :url %>
+          <%= a.text_field :url %>
+          <%= link_to "Remove", "#", :class => 'delete' %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "Add another resource link", "#", :class => 'add_resource_link' %>
   </fieldset>
   
   <% if park.new_record? %>
