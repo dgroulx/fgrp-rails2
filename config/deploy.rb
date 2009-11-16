@@ -1,6 +1,6 @@
 task :production do
   set :user, "friendsofgrparks"
-  set :application, "friendsofgrparks.dreamhosters.com"
+  set :application, "explore.friendsofgrparks.org"
   set :repository,  "ssh://git@gitorious.atomicobject.com:2022/friends-of-grand-rapids-parks/givecamp.git"
   set :branch, "master"
   set :copy_remote_dir, "/home/#{user}"
