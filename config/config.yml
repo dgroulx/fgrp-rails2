@@ -1,0 +1,5 @@
+development:
+  gmaps_key: ABQIAAAAwIRxdoIRFaF6xG-_lFH6RBTh3EVmyytS48scZT_LeMRImnnkbhRenhxIzmz2fKQhrR6vyYN7CRJvtA
+production:
+  gmaps_key: ABQIAAAABYJ8XuZViMBWE3PeCLGrdhR0DPXX2gO4ZJHI8oiK3JQAB6uGAxQYWlF1SvDXduV2MUrWYGYHgvCJIQ
+  
